@@ -13,8 +13,23 @@
           <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
           <input type="submit" class="ghost-button" value="Get Weather">
         </form>
-        <% if(weather !== null){ %>
+        <!-- <% if(weather !== null){ %>
           <p><%= JSON.stringify(weather) %></p>
+        <% } %> -->
+
+        <% if(weather !== null){ %>
+          <p><%= weather.name %></p>
+          <p>temperature actuel : <%= weather.main.temp %></p>
+          <p>min :<%= weather.main.temp_min %></p>
+          <p>max :<%= weather.main.temp_max %></p>
+          <p> humidité : <%= weather.main.humidity %></p>
+          <p>Vitesse du vent : <%= weather.wind.speed %></p>
+          <%= weather.weatherIcons.icon %>
+          <!-- <%= weather.weather.icon %> -->
+        <% } %>
+
+        <% if(weather !== null){ %>
+          <p><%= weather %></p>
         <% } %>
 
         <% if(error !== null){ %>

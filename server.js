@@ -44,7 +44,7 @@ function getIcon(weatherIcon) {
  * @param {*} weatherResponse 
  */
 function transformWeatherResponse(weatherResponse) {
-  if (weatherResponse.main == undefined) {
+  if (! weatherResponse.main) {
     return {
       weather: null,
       error: 'Erreur'
@@ -80,7 +80,16 @@ app.post('/', function (req, res) {
     }
 
     const weatherResponse = JSON.parse(body)
-    res.render('index',transformWeatherResponse(weatherResponse) );
+    // const text = `il fait ${weatherResponse.main.humidity}`
+    // res.render('index', {weather: text, error: null} );
+    // let message = `It's ${weatherResponse.main.temp} degrees in ${weatherResponse.name}! ${weatherResponse.wind.speed} / ${weatherResponse.main.temp_max} "max"/ 
+    //   ${weatherResponse.main.temp_min} !`;
+    // res.render('index', {weather: message, error :null});
+
+    // solution 2 : 
+    // const weatherResponse = JSON.parse(body)
+    res.render('index', {weather: weatherResponse, error :null});
+    
   });
 })
 /**
