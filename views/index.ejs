@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Test</title>
+    
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
   </head>
@@ -13,24 +14,21 @@
           <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
           <input type="submit" class="ghost-button" value="Get Weather">
         </form>
-        <!-- <% if(weather !== null){ %>
-          <p><%= JSON.stringify(weather) %></p>
-        <% } %> -->
 
-        <% if(weather !== null){ %>
-          <p><%= weather.name %></p>
-          <p>temperature actuel : <%= weather.main.temp %></p>
-          <p>min :<%= weather.main.temp_min %></p>
-          <p>max :<%= weather.main.temp_max %></p>
-          <p> humidité : <%= weather.main.humidity %></p>
-          <p>Vitesse du vent : <%= weather.wind.speed %></p>
-          <%= weather.weatherIcons.icon %>
-          <!-- <%= weather.weather.icon %> -->
-        <% } %>
+        <div class="weather-card">
+          <% if(weather !== null){ %>
+            <!-- <p><%= JSON.stringify(weather) %></p> -->
+            <p><%= weather.name %></p>
 
-        <% if(weather !== null){ %>
-          <p><%= weather %></p>
-        <% } %>
+            <p>temperature actuel : <%= weather.temp %></p>
+            <p>min :<%= weather.temp_min %></p>
+            <p>max :<%= weather.temp_max %></p>
+            <p> humidité : <%= weather.humidity %></p>
+            <p>Vitesse du vent : <%= weather.speed %></p>
+            <p>unset : <%= weather.sunset %></p>
+            <img class="image" src="<%= weather.icon %>" alt="">
+          <% } %>
+        </div>
 
         <% if(error !== null){ %>
           <p><%= error %></p>

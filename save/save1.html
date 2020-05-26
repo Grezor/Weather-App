@@ -1,0 +1,9 @@
+<% if(weather !== null){ %>
+  <p><%= weather.name %></p>
+  <p>temperature actuel : <%= weather.main.temp %></p>
+  <p>min :<%= weather.main.temp_min %></p>
+  <p>max :<%= weather.main.temp_max %></p>
+  <p> humidité : <%= weather.main.humidity %></p>
+  <p>Vitesse du vent : <%= weather.wind.speed %></p>
+  <%= weather.icon[weather] %>
+<% } %>

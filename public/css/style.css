@@ -67,3 +67,16 @@ fieldset {
 p {
   color: #E64A19;
 }
+.img {
+  width: 50px;
+  height: 50px;
+}
+
+.weather-card {
+  width: 325px;
+  height: 485px;
+  background-color: #e0e0e0;
+  border-radius: 20px;
+  border: 1px solid grey;
+  margin: 0 auto;
+}

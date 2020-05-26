@@ -24,16 +24,23 @@ app.get('/', function (req, res) {
 })
 // les icons
 const weatherIcons = {
-  '01d': '/public/img/clearSky.png',
-  '02d': '/public/img/fewClouds.png',
-  '03d': '/public/img/scatteredClouds.png',
-  '04d': '/public/img/brokenClouds.png',
-  '09d': '/public/img/showerRain.png',
-  '10d': '/public/img/rain.png',
-  '11d': '/public/img/thunderstorm.png',
-  '13d': '/public/img/snow.png',
-  '50d': '/public/img/mist.png',
-  'err': 'err.png'
+  '01d': '/img/clearSky.png',
+  '02d': '/img/fewClouds.png',
+  '03d': '/img/scatteredClouds.png',
+  '04d': '/img/brokenClouds.png',
+  '09d': '/img/showerRain.png',
+  '10d': '/img/rain.png',
+  '11d': '/img/thunderstorm.png',
+  '13d': '/img/snow.png',
+  '50d': '/img/mist.png',
+  '04n': '/img/clouds.png',
+  'err': '/img/error.png',
+
+  '01n': '/img/night/01n.png',
+  '02n': '/img/night/02n.png',
+  '03n': '/img/night/03n.png',
+  '04n': '/img/night/04n.png',
+  '09n': '/img/night/09n.png',
 }
 // pour afficher les icons
 function getIcon(weatherIcon) {
@@ -41,10 +48,19 @@ function getIcon(weatherIcon) {
   return weatherIcons[weatherKey]
 }
 /**
+ * Converti miliseconde en timestamp
+ * @param {*} return 26/05/2020 à 21:39:21
+ */
+function sunset(sunsetTime){
+  const dateObject = new Date(sunsetTime * 1000)
+  return dateObject.toLocaleString()
+}
+
+/**
  * @param {*} weatherResponse 
  */
 function transformWeatherResponse(weatherResponse) {
-  if (! weatherResponse.main) {
+  if (!weatherResponse.main) {
     return {
       weather: null,
       error: 'Erreur'
@@ -58,7 +74,8 @@ function transformWeatherResponse(weatherResponse) {
     humidity: weatherResponse.main.humidity,
     temp_max: weatherResponse.main.temp_max,
     temp_min: weatherResponse.main.temp_min,
-    speed: weatherResponse.wind.speed,
+    speed: Math.round(weatherResponse.wind.speed * 3.6),
+    sunset: sunset(weatherResponse.sys.sunset)
   }
 
   return {
@@ -69,7 +86,7 @@ function transformWeatherResponse(weatherResponse) {
 
 app.post('/', function (req, res) {
   let city = req.body.city;
-  let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}&lang=fr&wind=Imperial`
+  let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&wind=Metric&appid=${apiKey}&lang=fr`
 
   request(url, function (err, response, body) {
     if (err) {
@@ -84,11 +101,11 @@ app.post('/', function (req, res) {
     // res.render('index', {weather: text, error: null} );
     // let message = `It's ${weatherResponse.main.temp} degrees in ${weatherResponse.name}! ${weatherResponse.wind.speed} / ${weatherResponse.main.temp_max} "max"/ 
     //   ${weatherResponse.main.temp_min} !`;
-    // res.render('index', {weather: message, error :null});
+     res.render('index', transformWeatherResponse(weatherResponse));
 
     // solution 2 : 
     // const weatherResponse = JSON.parse(body)
-    res.render('index', {weather: weatherResponse, error :null});
+    // res.render('index', {weather: weatherResponse, error :null});
     
   });
 })
