@@ -35,7 +35,6 @@ const weatherIcons = {
   '50d': '/img/mist.png',
   '04n': '/img/clouds.png',
   'err': '/img/error.png',
-
   '01n': '/img/night/01n.png',
   '02n': '/img/night/02n.png',
   '03n': '/img/night/03n.png',
@@ -49,7 +48,7 @@ function getIcon(weatherIcon) {
 }
 /**
  * Converti miliseconde en timestamp
- * @param {*} return 26/05/2020 à 21:39:21
+ * @param {string} return 26/05/2020 à 21:39:21
  */
 function sunset(sunsetTime){
   const dateObject = new Date(sunsetTime * 1000)
@@ -69,6 +68,7 @@ function transformWeatherResponse(weatherResponse) {
 
   const weather = {
     name: weatherResponse.name,
+    main: weatherResponse.main.humidity,
     temp: Math.round((weatherResponse.main.temp * 100) / 100),
     icon: getIcon(weatherResponse.weather[0].icon),
     humidity: weatherResponse.main.humidity,

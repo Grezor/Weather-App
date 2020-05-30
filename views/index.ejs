@@ -15,18 +15,50 @@
           <input type="submit" class="ghost-button" value="Get Weather">
         </form>
 
-        <div class="weather-card">
-          <% if(weather !== null){ %>
-            <!-- <p><%= JSON.stringify(weather) %></p> -->
-            <p><%= weather.name %></p>
 
-            <p>temperature actuel : <%= weather.temp %></p>
+          <% if(weather !== null){ %>
+
+
+            
+    <div class="card">
+
+      <h2><%= weather.name %></h2>
+      <h3>Cloudy<span><%= weather.speed %>km/h <span class="dot">•</span> Precip <%= weather.humidity %>%</span></h3>
+      <h1><%= weather.temp %></h1>
+      <div class="sky">
+        <img class="image" src="<%= weather.icon %>" alt="">
+      </div>
+      <table>
+          <tr>
+              <td><img class="leve" src="../img/img1.png"></td>
+              <td>Couché</td>
+              <td>THU</td>
+              <td>FRI</td>
+              <td>SAT</td>
+          </tr>
+          <tr>
+              <td>30°</td>
+              <td>34°</td>
+              <td>36°</td>
+              <td>34°</td>
+              <td>37°</td>
+          </tr>
+          <tr>
+              <td>17°</td>
+              <td>22°</td>
+              <td>19°</td>
+              <td>23°</td>
+              <td>21:50</td>
+          </tr>
+      </table>
+  </div>
+            <!-- <p><%= JSON.stringify(weather) %></p> -->
+            <!-- <%= weather.sunset %>
+            <%= weather.main %>
             <p>min :<%= weather.temp_min %></p>
-            <p>max :<%= weather.temp_max %></p>
-            <p> humidité : <%= weather.humidity %></p>
-            <p>Vitesse du vent : <%= weather.speed %></p>
-            <p>unset : <%= weather.sunset %></p>
-            <img class="image" src="<%= weather.icon %>" alt="">
+            <p>max :<%= weather.temp_max %></p> -->
+
+            
           <% } %>
         </div>
 
@@ -34,6 +66,31 @@
           <p><%= error %></p>
         <% } %>
       </fieldset>
-    </div>
+
+
+
+    <!-- <div class="card-column">
+      <article class="card">
+        <a href="#" class="card-image" style=" background-image: url(https://static.pexels.com/photos/7075/people-office-group-team-medium.jpg);"></a>
+          <section class="card-content">
+            <header class="card-header">
+              <p class="card-subtitle">
+                Engagement
+              </p>
+              <h2 class="card-title">
+                <a href="#">5 Ways To Better Engage Your Employees</a>
+            </h2>
+            </header>
+            <section class="card-body">
+              <p>Aside from Rihanna’s recent hit, Work is generally not a term associated with wide-eyed enthusiasm or smiles. Considering we spend approximately 33% of our lives at work, this is a huge opportunity miss.
+              </p>
+              <div class="post-footer">
+                <p class="read-more"><a href="https://www.aventr.com/blog">Read more...</a></p>
+              </div>
+            </section>
+          </section>
+      </article>
+    </div> -->
+
   </body>
 </html>
