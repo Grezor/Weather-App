@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Test</title>
+    <title>Weather App</title>
     
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
@@ -23,33 +23,34 @@
     <div class="card">
 
       <h2><%= weather.name %></h2>
-      <h3>Cloudy<span><%= weather.speed %>km/h <span class="dot">•</span> Precip <%= weather.humidity %>%</span></h3>
-      <h1><%= weather.temp %></h1>
+      <h2><%= weather.description %></h2>
+      <h3>Cloudy<span> <span class="dot">•</span> Precip</span></h3>
+      <h1><%= weather.temp %>°</h1>
       <div class="sky">
         <img class="image" src="<%= weather.icon %>" alt="">
       </div>
       <table>
           <tr>
-              <td><img class="leve" src="../img/img1.png"></td>
-              <td>Couché</td>
-              <td>THU</td>
-              <td>FRI</td>
+              <td><img class="leve"    src="../img/img1.png"></td>
+              <td><img class="coucher" src="../img/img2.png"></td>
+              <td><img class="wind"    src="../img/wind.png"></td>
+              <td><img class="wind"    src="../img/humidity.png"></td>
               <td>SAT</td>
           </tr>
           <tr>
-              <td>30°</td>
-              <td>34°</td>
-              <td>36°</td>
-              <td>34°</td>
+              <td><%= weather.sunrise %></td>
+              <td><%= weather.sunset %></td>
+              <td><%= weather.speed %>km/h</td>
+              <td><%= weather.humidity %>%</td>
               <td>37°</td>
           </tr>
-          <tr>
+          <!-- <tr>
               <td>17°</td>
               <td>22°</td>
               <td>19°</td>
               <td>23°</td>
               <td>21:50</td>
-          </tr>
+          </tr> -->
       </table>
   </div>
             <!-- <p><%= JSON.stringify(weather) %></p> -->
