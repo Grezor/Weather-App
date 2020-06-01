@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <title>Weather App</title>
-    
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
   </head>
@@ -11,87 +10,41 @@
     <div class="container">
       <fieldset>
         <form action="/" method="post">
-          <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
-          <input type="submit" class="ghost-button" value="Get Weather">
+          <input name="city" type="text" class="ghost-input" placeholder="Entrer la ville" required>
+          <input type="submit" class="ghost-button" value="Validation">
         </form>
-
-
-          <% if(weather !== null){ %>
-
-
-            
-    <div class="card">
-
-      <h2><%= weather.name %></h2>
-      <h2><%= weather.description %></h2>
-      <h3>Cloudy<span> <span class="dot">•</span> Precip</span></h3>
-      <h1><%= weather.temp %>°</h1>
-      <div class="sky">
-        <img class="image" src="<%= weather.icon %>" alt="">
-      </div>
-      <table>
-          <tr>
-              <td><img class="leve"    src="../img/img1.png"></td>
+        <% if(weather !== null){ %>
+        <div class="card">
+          <h2><%= weather.name %></h2>
+          <h2><%= weather.description %></h2>
+          <!-- <h3><span> <span class="dot">•</span> Precip</span></h3> -->
+          <h1><%= weather.temp %>°</h1>
+          <div class="sky">
+            <img class="image" src="<%= weather.icon %>" alt="">
+          </div>
+          <table>
+            <tr>
+              <td><img class="leve" src="../img/img1.png"></td>
               <td><img class="coucher" src="../img/img2.png"></td>
-              <td><img class="wind"    src="../img/wind.png"></td>
-              <td><img class="wind"    src="../img/humidity.png"></td>
+              <td><img class="wind" src="../img/wind.png"></td>
+              <td><img class="wind" src="../img/humidity.png"></td>
               <td>SAT</td>
-          </tr>
-          <tr>
+            </tr>
+            <tr>
               <td><%= weather.sunrise %></td>
               <td><%= weather.sunset %></td>
               <td><%= weather.speed %>km/h</td>
               <td><%= weather.humidity %>%</td>
               <td>37°</td>
-          </tr>
-          <!-- <tr>
-              <td>17°</td>
-              <td>22°</td>
-              <td>19°</td>
-              <td>23°</td>
-              <td>21:50</td>
-          </tr> -->
-      </table>
-  </div>
-            <!-- <p><%= JSON.stringify(weather) %></p> -->
-            <!-- <%= weather.sunset %>
-            <%= weather.main %>
-            <p>min :<%= weather.temp_min %></p>
-            <p>max :<%= weather.temp_max %></p> -->
-
-            
+            </tr>
+          </table>
+        </div>
+            <!-- <p><%= JSON.stringify(weather) %></p> -->            
           <% } %>
         </div>
-
         <% if(error !== null){ %>
           <p><%= error %></p>
         <% } %>
       </fieldset>
-
-
-
-    <!-- <div class="card-column">
-      <article class="card">
-        <a href="#" class="card-image" style=" background-image: url(https://static.pexels.com/photos/7075/people-office-group-team-medium.jpg);"></a>
-          <section class="card-content">
-            <header class="card-header">
-              <p class="card-subtitle">
-                Engagement
-              </p>
-              <h2 class="card-title">
-                <a href="#">5 Ways To Better Engage Your Employees</a>
-            </h2>
-            </header>
-            <section class="card-body">
-              <p>Aside from Rihanna’s recent hit, Work is generally not a term associated with wide-eyed enthusiasm or smiles. Considering we spend approximately 33% of our lives at work, this is a huge opportunity miss.
-              </p>
-              <div class="post-footer">
-                <p class="read-more"><a href="https://www.aventr.com/blog">Read more...</a></p>
-              </div>
-            </section>
-          </section>
-      </article>
-    </div> -->
-
   </body>
 </html>

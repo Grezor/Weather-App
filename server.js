@@ -1,7 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
-const app = express()
+const app = express();
+
+const temp = require('./function/temp')
+const  icon = require('./function/icon')
+const  city = require('./function/city')
 // api meteo
 require('dotenv').config({
   path: __dirname + '/.env'
@@ -22,64 +26,14 @@ app.get('/', function (req, res) {
   });
 })
 
+
+
 app.get('/api2', function (req, res) {
   res.render('api2', {
     weather: null,
     error: null
   });
 })
-// les icons
-const weatherIcons = {
-  '01d': '/img/clearSky.png',
-  '02d': '/img/fewClouds.png',
-  '03d': '/img/scatteredClouds.png',
-  '04d': '/img/brokenClouds.png',
-  '09d': '/img/showerRain.png',
-  '10d': '/img/rain.png',
-  '11d': '/img/thunderstorm.png',
-  '13d': '/img/snow.png',
-  '50d': '/img/mist.png',
-  '04n': '/img/clouds.png',
-  'err': '/img/error.png',
-  '01n': '/img/night/01n.png',
-  '02n': '/img/night/02n.png',
-  '03n': '/img/night/03n.png',
-  '04n': '/img/night/04n.png',
-  '09n': '/img/night/09n.png',
-}
-// pour afficher les icons
-function getIcon(weatherIcon) {
-  const weatherKey = weatherIcon in weatherIcons ? weatherIcon : 'err'
-  return weatherIcons[weatherKey]
-}
-
-/**
- * retourne l'heure du levée du soleil
- * Converti miliseconde en timestamp
- * @param {string} return 26/05/2020 à 21:39:21
- */
-function sunset(sunsetTime){
-  // const dateObject = new Date(sunsetTime * 1000)
-  // return dateObject.toLocaleString()
-  const unix_timestamp = sunsetTime
-  const date = new Date(unix_timestamp * 1000);
-  const hours = date.getHours();
-  const minutes = "0" + date.getMinutes();
-  const formattedTime = hours + ':' + minutes.substr(-2);
-  return formattedTime
-}
-/**
- * retourne l'heure du levée du soleil
- * @param {time} sunrise 
- */
-function leveeDuSoleil(sunrise){
-  const unix_timestamp = sunrise
-  const date = new Date(unix_timestamp * 1000);
-  const hours = date.getHours();
-  const minutes = "0" + date.getMinutes();
-  const heureleve = hours + ':' + minutes.substr(-2);
-  return heureleve
-}
 
 /**
  * @param {*} weatherResponse 
@@ -97,13 +51,13 @@ function transformWeatherResponse(weatherResponse) {
     coord : weatherResponse.coord.lon,
     main: weatherResponse.main.humidity,
     temp: Math.round((weatherResponse.main.temp * 100) / 100),
-    icon: getIcon(weatherResponse.weather[0].icon),
+    icon: icon.getIcon(weatherResponse.weather[0].icon),
     humidity: weatherResponse.main.humidity,
     temp_max: weatherResponse.main.temp_max,
     temp_min: weatherResponse.main.temp_min,
     speed: Math.round(weatherResponse.wind.speed * 3.6),
-    sunset: sunset(weatherResponse.sys.sunset),
-    sunrise: leveeDuSoleil(weatherResponse.sys.sunrise),
+    sunset: temp.sunset(weatherResponse.sys.sunset),
+    sunrise: temp.sunrise(weatherResponse.sys.sunrise),
     lastUpdate: weatherResponse.lastupdate
   }
 
@@ -114,9 +68,10 @@ function transformWeatherResponse(weatherResponse) {
 }
 
 app.post('/', function (req, res) {
-  let city = req.body.city;
+
+  const city = req.body.city;
   const lang = 'fr'
-  let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&lang=${lang}&units=metric&wind=Metric&appid=${apiKey}&lang=fr`
+  const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&lang=${lang}&units=metric&wind=Metric&appid=${apiKey}&lang=fr`
 
   request(url, function (err, response, body) {
     if (err) {

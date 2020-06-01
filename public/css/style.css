@@ -1,8 +1,4 @@
-body {
-  width: 800px;
-  margin: 0 auto;
-  font-family: 'Open Sans', sans-serif;
-}
+
 .container {
   width: 600px;
   margin: 0 auto;
@@ -83,14 +79,6 @@ p {
 
 
 
-
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,300);
-html,
-body {
-    background-color: #F3F3F3;
-    font-family: 'Roboto', sans-serif;
-}
-
 .card {
     margin: 0 auto;
     margin-top: 5%;
@@ -127,6 +115,8 @@ h2 {
     font-weight: 300;
     font-size: 2.25em;
     -webkit-animation: up 2s cubic-bezier(.39, 0, .38, 1);
+    color: #e74c3c;
+    margin-bottom: 0px;
 }
 
 h3 {
@@ -157,11 +147,11 @@ span span {
 
 .sky {
     position: relative;
-    margin-top: 108px;
+    margin-top: 60px;
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background-color: #03A9F4;
+    background-color: #7f8c8d;
     -webkit-animation: up 2s cubic-bezier(.39, 0, .38, 1) .2s;
 }
 
