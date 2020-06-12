@@ -4,8 +4,12 @@ const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
 
-const temp = require('./function/temp')
+const {
+    sunset,
+    sunrise
+} = require('./function/temp')
 const icon = require('./function/icon')
+
 
 // api meteo
 require('dotenv').config({
@@ -52,9 +56,8 @@ function transformWeatherResponse(weatherResponse) {
         temp_max: weatherResponse.main.temp_max,
         temp_min: weatherResponse.main.temp_min,
         speed: Math.round(weatherResponse.wind.speed * 3.6),
-        sunset: temp.sunset(weatherResponse.sys.sunset),
-        sunrise: temp.sunrise(weatherResponse.sys.sunrise),
-        lastUpdate: weatherResponse.lastupdate
+        sunset: sunset(weatherResponse.sys.sunset),
+        sunrise: sunrise(weatherResponse.sys.sunrise),
     }
     return {
         weather,
@@ -72,7 +75,7 @@ app.post('/', function (req, res) {
         if (err) {
             return res.render('index', {
                 weather: null,
-                error: 'Error, please try again'
+                error: 'Une erreur es survenu'
             })
         }
 

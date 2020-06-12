@@ -1,24 +1,28 @@
 # Weather App
 
-## ▶️ Présentation :
+## Présentation :
 Ce projet, est une application web me permettant d'afficher la météo, la température, ou bien le taux d'humidité.
 
-## ▶️ Technologie : 
+## Technologie : 
     - Javascript
     - NodeJS
     - CSS 
 
-## ▶️ Requis :
+## Requis :
 Pour faire fonctionner cette application, il vous faudra d'installer :
 - NodeJS [Installation](https://nodejs.org/en/)
 - Postman [Installation](https://www.postman.com/downloads/)
 - 
 
-## ▶️ Ressources :
+## Ressources :
 - OpenWeather [Infos](https://openweathermap.org/guide)
 
-## ▶️ Tests :
+## Tests :
 
 
-## ▶️ Auteur
-- **Duplessi Geoffrey** 
+## Auteur
+---
+**Duplessi Geoffrey** 
+> GitHub [@Grezor][4]
+
+[4]: https://github.com/Grezor
