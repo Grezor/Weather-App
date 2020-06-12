@@ -2,6 +2,6 @@
 describe('', () => {
     test('demo', () => {
         const a = 2 + 2
-        expect(a).toBe(8)
+        expect(a).toBe(4)
     })
 })
