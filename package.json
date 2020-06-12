@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
-    "eslint": "^7.1.0"
+    "eslint": "^7.1.0",
+    "jest": "^26.0.1"
   }
 }
