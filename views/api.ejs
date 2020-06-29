@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Weather App</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <div class="container">
+      <fieldset>
+        <form action="/api" method="post">
+          <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
+          <input type="submit" class="ghost-button" value="Get Weather">
+        </form>
+      </fieldset>
+      <% if(weather !== null){ %>
+        <ul>
+            <li>lon:  <%= weather.lon %></li>
+            <li>timezone: <%= weather.timezone %></li>
+            <li>timezoneoffset: <%= weather.timezoneoffset %></li>
+            <li>// currents</li>
+            <li>dt: <%= weather.dt %></li>
+            <li>sunrise: <%= weather.sunrise %></li>
+            <li>sunset: <%= weather.sunset %></li>
+            <li>temp: <%= weather.temp %></li>
+            <li>feels_like: <%= weather.feels_like %></li>
+            <li>pressure: <%= weather.pressure %></li>
+            <li>humidity: <%= weather.humidity %></li>
+            <li>dew_point: <%= weather.dew_point %></li>
+            <li>uvi: <%= weather.uvi %></li>
+            <li>clouds: <%= weather.clouds %></li>
+            <li>visibility: <%= weather.visibility %></li>
+            <li>wind_speed: <%= weather.wind_speed %></li>
+            <li>wind_deg: <%= weather.wind_deg %></li>
+            <li>wind_gust: <%= weather.wind_gust %></li>
+            <li>main: <%= weather.icon %></li>
+            <li>main: <%= weather.dt %></li>
+            // daily
+            <li>
+              <ul>
+                <% for (let i = 0; i < weather.dailies.length; i++) { %>
+                  <li><%= weather.dailies[i].dt %></li>
+                  <li><%= weather.dailies[i].icon %></li>
+                  <li><%= weather.dailies[i].tempDays %></li>
+                  <li><%= weather.dailies[i].min %></li>
+                  <li><%= weather.dailies[i].max %></li>
+                  <li><%= weather.dailies[i].night %></li>
+                <% } %>
+              </ul>
+            </li>
+        </ul>
+      
+
+        
+
+      <% } %>
+      <% if(error !== null){ %>
+        <p><%= error %></p>
+      <% } %>
+  </body>
+</html>

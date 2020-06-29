@@ -1,5 +1,5 @@
-const icon = {
-    getIcon: (weatherIcon) => {
+const icon2 = {
+    getIcon2: (weatherIcon) => {
         const weatherIcons = {
             '01d': '/img/clearSky.png',
             '02d': '/img/fewClouds.png',
@@ -24,4 +24,4 @@ const icon = {
     }
 }
 
-module.exports = icon
+module.exports = icon2

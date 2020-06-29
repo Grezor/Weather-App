@@ -4,12 +4,9 @@ const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
 
-const {
-    sunset,
-    sunrise
-} = require('./function/temp')
-const icon = require('./function/icon')
-
+const weatherR = require('./function/temp')
+const weatherR2 = require('./function/api2')
+// const { json } = require('body-parser')
 
 // api meteo
 require('dotenv').config({
@@ -31,39 +28,12 @@ app.get('/', function (req, res) {
     })
 })
 
-app.get('/api2', function (req, res) {
-    res.render('api2', {
+app.get('/api', function (req, res) {
+    res.render('api', {
         weather: null,
         error: null
     })
 })
-
-function transformWeatherResponse(weatherResponse) {
-    if (!weatherResponse.main) {
-        return {
-            weather: null,
-            error: 'Erreur'
-        }
-    }
-
-    const weather = {
-        name: weatherResponse.name,
-        coord: weatherResponse.coord.lon,
-        main: weatherResponse.main.humidity,
-        temp: Math.round((weatherResponse.main.temp * 100) / 100),
-        icon: icon.getIcon(weatherResponse.weather[0].icon),
-        humidity: weatherResponse.main.humidity,
-        temp_max: weatherResponse.main.temp_max,
-        temp_min: weatherResponse.main.temp_min,
-        speed: Math.round(weatherResponse.wind.speed * 3.6),
-        sunset: sunset(weatherResponse.sys.sunset),
-        sunrise: sunrise(weatherResponse.sys.sunrise),
-    }
-    return {
-        weather,
-        error: null
-    }
-}
 
 app.post('/', function (req, res) {
 
@@ -80,7 +50,21 @@ app.post('/', function (req, res) {
         }
 
         const weatherResponse = JSON.parse(body)
-        res.render('index', transformWeatherResponse(weatherResponse))
+        res.render('index', weatherR.transformWeatherResponse(weatherResponse))
+    })
+})
+
+app.post('/api', function (req, res) {
+    const url = `https://api.openweathermap.org/data/2.5/onecall?lat=50.6333&lon=3.0667&appid=${apiKey}&units=metric&lang=fr`
+    request(url, function (err, response, body) {
+        if (err) {
+            return res.render('api', {
+                weather: null,
+                error: 'Une erreur es survenu'
+            })
+        }
+        const weatherResponse = JSON.parse(body)
+        res.render('api', weatherR2.respons2(weatherResponse))
     })
 })
 /**

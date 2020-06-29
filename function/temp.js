@@ -1,26 +1,46 @@
-module.exports = {
+const icon = require('./icon')
+const api = {
     /**
-    * Couchée du soleil
+    * Couchée du soleil et lever
     * return format heure (21:30)
     */
-    sunset: (sunsetTime) => {
-        const date = new Date(sunsetTime * 1000)
+    sunsetAndSunrise: (clock) => {
+        const date = new Date(clock * 1000)
         const hours = date.getHours()
         const minutes = '0' + date.getMinutes()
         const formattedTime = hours + ':' + minutes.substr(-2)
         return formattedTime
     },
     /**
-  * levée du soleil
-  * return format heure (05:30)
-  */
-    sunrise: (sunrise) => {
-        const unix_timestamp = sunrise
-        const date = new Date(unix_timestamp * 1000)
-        const hours = date.getHours()
-        const minutes = '0' + date.getMinutes()
-        const heureleve = hours + ':' + minutes.substr(-2)
-        return heureleve
+     * 
+     */
+    transformWeatherResponse: (weatherResponse) => {
+        if (!weatherResponse.main) {
+            return {
+                weather: null,
+                error: 'Erreur'
+            }
+        }
+    
+        const weather = {
+            name: weatherResponse.name,
+            coord: weatherResponse.coord.lon,
+            main: weatherResponse.main.humidity,
+            temp: Math.round((weatherResponse.main.temp * 100) / 100),
+            icon: icon.getIcon(weatherResponse.weather[0].icon),
+            humidity: weatherResponse.main.humidity,
+            temp_max: weatherResponse.main.temp_max,
+            temp_min: weatherResponse.main.temp_min,
+            speed: Math.round(weatherResponse.wind.speed * 3.6),
+            sunset: api.sunsetAndSunrise(weatherResponse.sys.sunset),
+            sunrise: api.sunsetAndSunrise(weatherResponse.sys.sunrise),
+        }
+        return {
+            weather,
+            error: null
+        }
     }
 }
+
+module.exports = api
 
