@@ -15,9 +15,22 @@ const api2 = {
             feels_like_night: daily.feels_like.night,
             feels_like_eve: daily.feels_like.eve,
             feels_like_morn: daily.feels_like.morn,
+            // 
+            humidity: daily.humidity,
+            wind_speed: daily.wind_speed,
+            //
+            weather_main: daily.weather[0].main,
+            weather_icon: daily.weather[0].icon,
+            // 
+            sunrise: daily.sunrise,
+            sunset: daily.sunset
+
         }
     },
-
+    /**
+    * Convertie timestamp en Date
+    * retourne la date : J/M/A
+    */
     timestampToDate: (unixTimestamp) => {
         const date = new Date(unixTimestamp * 1000)
         const year = new Intl.DateTimeFormat('fr', { year: 'numeric' }).format(date)
