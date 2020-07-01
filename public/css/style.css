@@ -20,7 +20,7 @@ fieldset {
   min-width: -webkit-min-content;
   padding: 30px;
 }
-.ghost-input, p {
+/* .ghost-input, p {
   display: block;
   font-weight:300;
   width: 100%;
@@ -41,7 +41,7 @@ fieldset {
   -ms-transition: all 0.1s ease-in-out;
   -o-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
-}
+} */
 .ghost-input:focus {
   border-bottom:1px solid #ddd;
 }
@@ -256,3 +256,100 @@ tr:nth-child(3) {
         opacity: 1;
     }
 }
+
+
+
+body {margin:0;}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background: #ddd;
+  color: black;
+}
+
+
+.watermark {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    opacity: var(--watermarkOpacity, 0.3);
+    z-index: 100;
+    -webkit-transition: var(--hoverTime, 0) ease-out;
+    transition: var(--hoverTime, 0) ease-out;
+  }
+  
+  .watermark:hover {
+    --watermarkOpacity: 1;
+  }
+  
+  .card-container {
+    display: grid;
+    padding: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 1rem;
+  }
+  
+  .card {
+    display: grid;
+    position: relative;
+  }
+  
+  .card .button {
+    align-self: end;
+  }
+  
+
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  .card {
+    box-shadow: 0px 1px 5px #555;
+    background-color: white;
+  }
+  
+  .card__title {
+    font-size: 2rem;
+    padding: .5rem;
+  }
+  
+  .card__description {
+    padding: .5rem;
+    line-height: 1.6em;
+  }
+  
+  .button {
+    display: block;
+    background-color: tomato;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    -webkit-transition: .3s ease-out;
+    transition: .3s ease-out;
+  }
+  .button:hover {
+    background-color: #ff3814;
+  }
+  
+  img {
+    max-width: 100%;
+  }
