@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Weather App</title>
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
   <link rel="stylesheet" type="text/css" href="/css/style.css">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
 </head>
@@ -23,168 +24,108 @@
       <input type="submit" class="ghost-button" value="Get Weather">
     </form>
   </fieldset>
+
   <% if(weather !== null){ %>
-  <section class="card-container">
-    <% for (let i = 0; i < weather.dailies.length; i++) { %>
+    <!-- <ul>
+        <li>lon:  <%= weather.lon %></li>
+        <li>timezone: <%= weather.timezone %></li>
+        <li>timezoneoffset: <%= weather.timezoneoffset %></li>
+        <li>// currents</li>
+        <li>dt: <%= weather.dt %></li>
+        <li>sunrise: <%= weather.sunrise %></li>
+        <li>sunset: <%= weather.sunset %></li>
+        <li>temp: <%= weather.temp %></li>
+        <li>feels_like: <%= weather.feels_like %></li>
+        <li>pressure: <%= weather.pressure %></li>
+        <li>humidity: <%= weather.humidity %></li>
+        <li>dew_point: <%= weather.dew_point %></li>
+        <li>uvi: <%= weather.uvi %></li>
+        <li>clouds: <%= weather.clouds %></li>
+        <li>visibility: <%= weather.visibility %></li>
+        <li>wind_speed: <%= weather.wind_speed %></li>
+        <li>wind_deg: <%= weather.wind_deg %></li>
+        <li>wind_gust: <%= weather.wind_gust %></li>
+        <li>main: <%= weather.icon %></li>
+        <li>main: <%= weather.dt %></li> -->
+        // daily
+        <main>
+          <section class="cards">
+            <% for (let i = 0; i < weather.dailies.length; i++) { %>
+              <div class="card">
+                <div class="card__content">
+                  <div class="card__info">
+                    <p class="text--medium"><%= weather.dailies[i].dt %></p>
+                    <p class="card__price text--max"><%= weather.dailies[i].max %> °</p>
+                  </div>
+                </div>
+                <div class="card__image-container">
+                  <img
+                    src="<%= weather.dailies[i].icon %>"
+                    alt="Detailed image description would go here."
+                  />
+                </div>
+                <div class="card__content">
+                  <div class="clash-card__unit-stats clash-card__unit-stats--archer clearfix">
+                    <div class="two-third">
+                      
+                      <div class="stat"><%= weather.dailies[i].sunrise %> H</div>
+                      <div class="stat-value">Levée du soleil</div>
+                    </div>
+            
+                    <div class="two-third">
+                      <div class="stat"><%= weather.dailies[i].sunset %> H</div>
+                      <div class="stat-value">couché du soleil</div>
+                    </div>
+                  </div>
+                  <div class="clash-card__unit-stats clash-card__unit-stats--archer clearfix">
+                    <div class="one-third">
+                      <div class="stat"><%= weather.dailies[i].min %> %</div>
+                      <div class="stat-value">Humidité</div>
+                    </div>
+            
+                    <div class="two-third">
+                      <div class="stat"><%= weather.dailies[i].wind_speed %> km/h</div>
+                      <div class="stat-value">Vents</div>
+                    </div>
+                  </div>
+                  <div class="clash-card__unit-stats clash-card__unit-stats--archer clearfix">
+                    <div class="one-third">
+                      <div class="stat"><%= weather.dailies[i].min %> °</div>
+                      <div class="stat-value">Min</div>
+                    </div>
+            
+                    <div class="one-third">
+                      <div class="stat"><%= weather.dailies[i].max %> °</div>
+                      <div class="stat-value">Max</div>
+                    </div>
+            
+                    <div class="one-third no-border">
+                      <div class="stat"><%= weather.dailies[i].night %> °</div>
+                      <div class="stat-value">nuit</div>
+                    </div>
+                  </div>
+                  <!-- <div class="card__info">
+                    <p class="text--medium">30 Min</p>
+                    <p class="card__price text--medium">Free</p>
+                  </div> -->
+                </div>
+              </div>
+                
 
-    <article class="card">
-      <header class="">
-        <h3><%= weather.dailies[i].dt %></h3>
-      </header>
-      <figure class="">
-
-      </figure>
-      <main class="">
-        <div id='today-extra'>
-          <div>
-
-            <div class='temp'>
-              <span class='hi'>24</span>
-            </div>
-          </div>
-          <div class='humidity'>
-            <span>20</span>
-          </div>
-          <div class='wind'>
-            <span>5</span>
-          </div>
-        </div>
-
-
-
-        <!-- <p><%= weather.dailies[i].icon %></p> -->
-        <p>temperature<%= weather.dailies[i].tempDays %></p>
-        <p>min<%= weather.dailies[i].min %></p>
-        <p>max <%= weather.dailies[i].max %></p>
-        <p>night<%= weather.dailies[i].night %></p>
-        <!-- <p>feels_like_day<%= weather.dailies[i].feels_like_day %></p> -->
-        <!-- <p><%= weather.dailies[i].feels_like_night %></p>
-        <p><%= weather.dailies[i].feels_like_eve %></p>
-        <p><%= weather.dailies[i].feels_like_morn %></p> -->
-        <p>humidity <%= weather.dailies[i].humidity %> %</p>
-        <p>vent <%= weather.dailies[i].wind_speed %></p>
-        <!-- <p>weather main<%= weather.dailies[i].weather_main %></p> -->
-        <!-- <p>icon <%= weather.dailies[i].weather_icon %></p> -->
-        <p>sunrise : <%= weather.dailies[i].sunrise %></p>
-        <p>sunset <%= weather.dailies[i].sunset %></p>
-
-      </main>
-    </article> <% } %>
-  </section>
+              <!-- <li><%= weather.dailies[i].dt %></li>
+              <li><%= weather.dailies[i].icon %></li>
+              <li><%= weather.dailies[i].tempDays %></li>
+              <li><%= weather.dailies[i].min %></li>
+              <li><%= weather.dailies[i].max %></li>
+              <li><%= weather.dailies[i].night %></li> -->
+            <% } %>
+          </section>
+        </main>
+  
+    
   <% } %>
   <% if(error !== null){ %>
-  <p><%= error %></p>
+    <p><%= error %></p>
   <% } %>
 </body>
-<style>
-  #time {
-height: 150px;
-line-height: 150px;
-text-align: center;
-font-size: 64px;
-}
-
-#today-extra {
-width: auto;
-height: 150px;
-background: #E06C6C;
-color: #FAFDF6;
-}
-
-#today-extra div > svg {
-margin-top: 12px;
-height: 83.33333px;
-}
-
-.humidity > span:after {
-content: '%';
-}
-
-.wind > span:after {
-content: ' km/h';
-}
-
-#days {
-/* width: 840px;
-height: 250px; */
-}
-
-#days > div > svg {
-height: 83.33333px;
-}
-
-#days > div > div {
-height: 29px;
-line-height: 29px;
-}
-
-.day {
-color: #E06C6C;
-text-transform: uppercase;
-margin-top: 55px;
-}
-
-.temp {
-font-size: 24px;
-}
-
-.temp > span:after {
-content: "\00b0";
-}
-
-.temp > .low:before {
-content: '/ ';
-}
-
-
-
-.flex-parent, #weather-card, #weather-card > div:not(:first-of-type), #days > div, #today-extra > div {
-display: flex;
-display: -webkit-box;
-display: -ms-flexbox;
-display: -webkit-flex;
-}
-
-.flex-column, #weather-card, #days > div, #today-extra > div {
-flex-direction: column;
--webkit-flex-direction: column;
-}
-
-.flex-center, #days > div, #today-extra > div {
-align-items: center;
--webkit-align-items: center;
-}
-
-/*.flex-child{
--webkit-box-flex: 1;
--webkit-flex: 1;
--ms-flex: 1;
-flex: 1;
-}*/
-#weather-card {
-position: absolute;
-left: 50%;
-transform: translate(-50%, 10%);
--webkit-transform: translate(-50%, 10%);
--moz-transform: translate(-50%, 10%);
--ms-transform: translate(-50%, 10%);
--o-transform: translate(-50%, 10%);
-transform: translate(-50%, 10%);
-overflow: hidden;
-width: 420px;
-height: 550px;
-background: #F0F0F0;
-box-shadow: 0 3px 10px 0 rgba(116, 114, 114, 0.5);
-}
-
-#weather-card > div:not(:first-of-type) {
-flex-direction: row;
--webkit-flex-direction: row;
-}
-
-#weather-card > div:not(:first-of-type) > div {
-width: 140px;
-}
-
-</style>
 </html>
