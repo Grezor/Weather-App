@@ -1,12 +1,12 @@
 const icon2 = {
     getIcon2: (weatherIcon) => {
         const weatherIcons = {
-            '01d': '/img/clearSky.png',
+            '01d': '/img/news/clearSky.jpg',
             '02d': '/img/fewClouds.png',
             '03d': '/img/scatteredClouds.png',
             '04d': '/img/brokenClouds.png',
             '09d': '/img/showerRain.png',
-            '10d': '/img/rain.png',
+            '10d': '/img/news/rain.jpg',
             '11d': '/img/thunderstorm.png',
             '13d': '/img/snow.png',
             '50d': '/img/mist.png',

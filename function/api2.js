@@ -1,5 +1,7 @@
 const icon2 = require('./icons2')
 const api2 = {
+    
+
     transformDaily: (daily) => {
         return {
             dt: api2.timestampToDate(daily.dt),

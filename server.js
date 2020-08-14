@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
 
-const weatherR = require('./function/temp')
+const weatherR = require('./function/api1')
 const weatherR2 = require('./function/api2')
 // const { json } = require('body-parser')
 
@@ -36,7 +36,6 @@ app.get('/api', function (req, res) {
 })
 
 app.post('/', function (req, res) {
-
     const city = req.body.city
     const lang = 'fr'
     const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&lang=${lang}&units=metric&wind=Metric&appid=${apiKey}&lang=fr`
@@ -55,7 +54,8 @@ app.post('/', function (req, res) {
 })
 
 app.post('/api', function (req, res) {
-    const url = `https://api.openweathermap.org/data/2.5/onecall?lat=50.6333&lon=3.0667&appid=${apiKey}&units=metric&lang=fr`
+    const city = req.body.city
+    const url = `https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&appid=${apiKey}&units=metric&lang=fr`
     request(url, function (err, response, body) {
         if (err) {
             return res.render('api', {

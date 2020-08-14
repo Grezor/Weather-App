@@ -5,6 +5,7 @@ I was tired of going out and seeing how long it was outside. Tired of using the 
 This simple weather application will only display the current weather for a given area.
 Moreover I always wanted to know how to work a REST API consumption.
 While learning node.js, I wanted to do something simple and fast. This project, is a web application allowing me to display weather, temperature, or humidity.
+
 ## Installation
 ```git clone [name project] or button download```
 ## Technologie 
