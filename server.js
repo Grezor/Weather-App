@@ -3,10 +3,8 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
-
-const weatherR = require('./function/temp')
+const weatherR = require('./function/api1')
 const weatherR2 = require('./function/api2')
-// const { json } = require('body-parser')
 
 // api meteo
 require('dotenv').config({
@@ -14,6 +12,7 @@ require('dotenv').config({
 })
 // clé
 const apiKey = `${process.env.APIKEY}`
+const apimapbox = `${process.env.APIMAPBOX}`
 
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({
@@ -34,9 +33,10 @@ app.get('/api', function (req, res) {
         error: null
     })
 })
-
+/**
+ * Méteo du Jour
+ */
 app.post('/', function (req, res) {
-
     const city = req.body.city
     const lang = 'fr'
     const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&lang=${lang}&units=metric&wind=Metric&appid=${apiKey}&lang=fr`
@@ -48,14 +48,14 @@ app.post('/', function (req, res) {
                 error: 'Une erreur es survenu'
             })
         }
-
         const weatherResponse = JSON.parse(body)
         res.render('index', weatherR.transformWeatherResponse(weatherResponse))
     })
 })
 
 app.post('/api', function (req, res) {
-    const url = `https://api.openweathermap.org/data/2.5/onecall?lat=50.6333&lon=3.0667&appid=${apiKey}&units=metric&lang=fr`
+    const city = req.body.city
+    const url = `https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&appid=${apiKey}&units=metric&lang=fr`
     request(url, function (err, response, body) {
         if (err) {
             return res.render('api', {
@@ -65,6 +65,21 @@ app.post('/api', function (req, res) {
         }
         const weatherResponse = JSON.parse(body)
         res.render('api', weatherR2.respons2(weatherResponse))
+    })
+})
+
+app.get('/mapbox', function (req, res) {
+    const city = encodeURI(req.body.city)
+    const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=${apimapbox}`
+    request(url, function (err, response, body) {
+        if (err) {
+            return res.render('api3', {
+                weather: null,
+                error: 'Une erreur es survenu'
+            })
+        }
+        const weatherResponse = JSON.parse(body)
+        res.render('api3', weatherResponse)
     })
 })
 /**

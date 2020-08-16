@@ -1,62 +1,78 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Weather App</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
-  </head>
-  <body>
-    <div class="container">
-      <fieldset>
-        <form action="/api" method="post">
-          <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
-          <input type="submit" class="ghost-button" value="Get Weather">
-        </form>
-      </fieldset>
-      <% if(weather !== null){ %>
-        <ul>
-            <li>lon:  <%= weather.lon %></li>
-            <li>timezone: <%= weather.timezone %></li>
-            <li>timezoneoffset: <%= weather.timezoneoffset %></li>
-            <li>// currents</li>
-            <li>dt: <%= weather.dt %></li>
-            <li>sunrise: <%= weather.sunrise %></li>
-            <li>sunset: <%= weather.sunset %></li>
-            <li>temp: <%= weather.temp %></li>
-            <li>feels_like: <%= weather.feels_like %></li>
-            <li>pressure: <%= weather.pressure %></li>
-            <li>humidity: <%= weather.humidity %></li>
-            <li>dew_point: <%= weather.dew_point %></li>
-            <li>uvi: <%= weather.uvi %></li>
-            <li>clouds: <%= weather.clouds %></li>
-            <li>visibility: <%= weather.visibility %></li>
-            <li>wind_speed: <%= weather.wind_speed %></li>
-            <li>wind_deg: <%= weather.wind_deg %></li>
-            <li>wind_gust: <%= weather.wind_gust %></li>
-            <li>main: <%= weather.icon %></li>
-            <li>main: <%= weather.dt %></li>
-            // daily
-            <li>
-              <ul>
-                <% for (let i = 0; i < weather.dailies.length; i++) { %>
-                  <li><%= weather.dailies[i].dt %></li>
-                  <li><%= weather.dailies[i].icon %></li>
-                  <li><%= weather.dailies[i].tempDays %></li>
-                  <li><%= weather.dailies[i].min %></li>
-                  <li><%= weather.dailies[i].max %></li>
-                  <li><%= weather.dailies[i].night %></li>
-                <% } %>
-              </ul>
-            </li>
-        </ul>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
+      <div class="flex items-center flex-shrink-0 text-white mr-6">
+        <span class="font-semibold text-xl tracking-tight">Weather'App</span>
+      </div>
+      <div class="block lg:hidden">
+        <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
+          <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+        </button>
+      </div>
+      <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+        <div class="text-sm lg:flex-grow">
+          <a href="http://localhost:3000/" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+            Méteo du jour
+          </a>
+          <a href="http://localhost:3000/api" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+            Méteo du 7 jours
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mx-auto">
+      <form class="w-full max-w-sm" action="/api" method="post">
+        <div class="flex items-center border-b border-teal-500 py-2">
+          <input name="city" class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="exemple : Lille" aria-label="Full name">
+          <button class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="submit">
+            Validation
+          </button>
+        </div>
+      </form>
+      <form action="/api" method="post">
+        <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
+        <input type="submit" class="ghost-button" value="Get Weather">
+      </form>
+      <div class="container mt-6">
+
+         
+        <% if(weather !== null){ %>
+          
+          <div class="grid grid-cols-3 gap-4">
+          <% for (let i = 0; i < weather.dailies.length; i++) { %>
+            
+              <div class="max-w-sm rounded overflow-hidden shadow-lg">
+                <img class="w-full"
+                src="<%= weather.dailies[i].icon %>"
+                alt="Detailed image description would go here."
+              />
+                <div class="px-6 py-4">
+                  <div class="font-bold text-xl mb-2"><%= weather.dailies[i].dt %></div>
+                  <p class="text-gray-700 text-base">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
+                  </p>
+                </div>
+                <div class="px-6 py-4">
+                  <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#photography</span>
+                  <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#travel</span>
+                  <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">#winter</span>
+                </div>
+              </div>
       
-
-        
-
-      <% } %>
-      <% if(error !== null){ %>
-        <p><%= error %></p>
-      <% } %>
-  </body>
+           
+          <% } %>   
+        </div>
+        <% } %>   
+      </div>
+  
+</body>
 </html>
