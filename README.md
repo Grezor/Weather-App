@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 ![Black and White General Greeting Liberation Day Twitter Header](https://user-images.githubusercontent.com/38507456/86512535-65c7e580-be03-11ea-8833-eabacd5c92c3.png)
 
 ## Introduction 
