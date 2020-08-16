@@ -47,7 +47,7 @@
       </form>
       <div class="container mt-5">
         <% if(weather !== null){ %>
-          <div class="rounded overflow-hidden shadow-lg bg-gray-400">
+          <div class="rounded overflow-hidden shadow-lg bg-gray-200">
             <img class="image" src="<%= weather.icon %>" alt="">
             <div class="px-6 py-4">
               <div class="font-bold text-xl mb-2"><%= weather.name %></div>
@@ -56,11 +56,13 @@
                 <span class="inline-block bg-blue-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">Latitude <%= weather.lon %></span>
                 <span class="inline-block bg-blue-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">Longitude <%= weather.lat %></span>
               </div>
-              <p class="text-gray-700 text-base">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-              </p>
             </div>
               <div class="flex content-center flex-wrap bg-gray-200 h-48">
+                <div class="w-1/3 p-2">
+                  <div class="text-gray-700 text-center bg-gray-400 p-2">
+                    <%= weather.windspeed %>
+                  </div>
+                </div>
                 <div class="w-1/3 p-2">
                   <div class="text-gray-700 text-center bg-gray-400 p-2">
                     <%= weather.sunrise %>
