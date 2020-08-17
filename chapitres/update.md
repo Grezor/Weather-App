@@ -1,16 +1,11 @@
+# Chapitre : Mise à jour
+Ce chapitre, permet de mettre a jour les différentes dépendances a jour.
+
 ## install : 
-```bash
-    npm i npm-check-updates
-```
+```npm i npm-check-updates```
 ## check update 
-```bash
-    ncu
-```
+```ncu```
 ## upgrade :
-```bash
-    ncu -u
-```
+```ncu -u```
 ## install :
-```bash
-    npm install
-```
+```npm install```
