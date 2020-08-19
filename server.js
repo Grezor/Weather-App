@@ -5,20 +5,21 @@ const request = require('request')
 const app = express()
 const weatherR = require('./function/api1')
 const weatherR2 = require('./function/api2')
+const callfunction = require('./function/functionsApi')
 
-// api meteo
 require('dotenv').config({
     path: __dirname + '/.env'
 })
 // clé
 const apiKey = `${process.env.APIKEY}`
 const apimapbox = `${process.env.APIMAPBOX}`
-
+//  le moteur de modèle à utiliser ici ejs
+app.set('view engine', 'ejs'); 
+ // Pour utiliser plusieurs répertoires statiques actifs
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({
     extended: true
 }))
-app.set('view engine', 'ejs')
 
 app.get('/', function (req, res) {
     res.render('index', {

@@ -35,5 +35,12 @@ const functionApi = {
         const day = new Intl.DateTimeFormat('fr', { day: '2-digit' }).format(date)
         return `${day}/${month}/${year}`
     },
+
+    currentYear: () => {
+        const now = new Date()
+        const currentyear = now.getFullYear()
+        return currentyear;
+    }
+
 }
 module.exports = functionApi
