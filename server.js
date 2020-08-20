@@ -3,8 +3,8 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
-const weatherR = require('./function/api1')
-const weatherR2 = require('./function/api2')
+const weatherResponseOneDay = require('./function/apiOneDay')
+const weatherResponse7days = require('./function/api7days')
 const callfunction = require('./function/functionsApi')
 
 require('dotenv').config({
@@ -50,13 +50,15 @@ app.post('/', function (req, res) {
             })
         }
         const weatherResponse = JSON.parse(body)
-        res.render('index', weatherR.transformWeatherResponse(weatherResponse))
+        res.render('index', weatherResponseOneDay.transformWeatherResponse(weatherResponse))
     })
 })
 
 app.post('/api', function (req, res) {
     const city = req.body.city
-    const url = `https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&appid=${apiKey}&units=metric&lang=fr`
+    const lat = req.body.lat
+    const long = req.body.long
+    const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric&lang=fr`
     request(url, function (err, response, body) {
         if (err) {
             return res.render('api', {
@@ -65,7 +67,7 @@ app.post('/api', function (req, res) {
             })
         }
         const weatherResponse = JSON.parse(body)
-        res.render('api', weatherR2.respons2(weatherResponse))
+        res.render('api', weatherResponse7days.respons2(weatherResponse))
     })
 })
 
@@ -74,13 +76,13 @@ app.get('/mapbox', function (req, res) {
     const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=${apimapbox}`
     request(url, function (err, response, body) {
         if (err) {
-            return res.render('api3', {
+            return res.render('mapbox', {
                 weather: null,
                 error: 'Une erreur es survenu'
             })
         }
         const weatherResponse = JSON.parse(body)
-        res.render('api3', weatherResponse)
+        res.render('mapbox', weatherResponse)
     })
 })
 /**

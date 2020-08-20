@@ -1,6 +1,6 @@
 const icon = require('./icon')
 const callfunction = require('./functionsApi')
-const api = {
+const apiOneDay = {
 
 
     transformWeatherResponse: (weatherResponse) => {
@@ -21,8 +21,8 @@ const api = {
             description:  weatherResponse.weather[0].description,
 
             temp: Math.round((weatherResponse.main.temp * 100) / 100),
-            temp_max: weatherResponse.main.temp_max,
-            temp_min: weatherResponse.main.temp_min,
+            temp_max: Math.round(weatherResponse.main.temp_max),
+            temp_min: Math.round(weatherResponse.main.temp_min),
             pressure: weatherResponse.main.pressure,
             humidity: weatherResponse.main.humidity,
    
@@ -41,5 +41,5 @@ const api = {
     }
 }
 
-module.exports = api
+module.exports = apiOneDay
 

@@ -1,4 +1,5 @@
 <%- include('partials/header') %>
+  <h1>Meteo 7 jours</h1>
     <div class="container mx-auto">
       <form class="w-full max-w-sm" action="/api" method="post">
         <div class="flex items-center border-b border-teal-500 py-2">
@@ -9,7 +10,8 @@
         </div>
       </form>
       <form action="/api" method="post">
-        <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
+        <input name="lat" type="text" class="ghost-input" placeholder="Enter a latitude" required>
+        <input name="long" type="text" class="ghost-input" placeholder="Enter a longitude" required>
         <input type="submit" class="ghost-button" value="Get Weather">
       </form>
       <div class="container mt-6">
