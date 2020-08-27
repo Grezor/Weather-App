@@ -5,6 +5,7 @@ const request = require('request')
 const app = express()
 const weatherResponseOneDay = require('./function/apiOneDay')
 const weatherResponse7days = require('./function/api7days')
+const ApiMapBox = require('./function/mapboxApi')
 const callfunction = require('./function/functionsApi')
 
 require('dotenv').config({
@@ -70,24 +71,31 @@ app.post('/api', function (req, res) {
         res.render('api', weatherResponse7days.respons2(weatherResponse))
     })
 })
-
-app.get('/mapbox', function (req, res) {
+/**
+*   Mapbox 
+*/
+app.all('/mapbox', function (req, res) {
     const city = encodeURI(req.body.city)
     const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=${apimapbox}`
     request(url, function (err, response, body) {
         if (err) {
             return res.render('mapbox', {
-                weather: null,
+                mapbox: null,
                 error: 'Une erreur es survenu'
             })
         }
         const weatherResponse = JSON.parse(body)
-        res.render('mapbox', weatherResponse)
+        res.render('mapbox', ApiMapBox.responseMapbox(weatherResponse));
+        // const weatherResponse = JSON.parse(body)
+        // res.render('mapbox', weatherResponse)
     })
 })
+
 /**
  * Serveur web : 
  */
-app.listen(3000, function () {
-    console.log('le serveur est sur le port 3000!')
+const server = app.listen(3000, function () {
+    const host = 'localhost';
+    const port = server.address().port;
+    console.log('running at http://' + host + ':' + port)
 })

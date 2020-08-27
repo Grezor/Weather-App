@@ -8,12 +8,15 @@
           </button>
         </div>
       </form>
-      <div class="container mt-5">
-       
-        <p><%= JSON.stringify(features) %></p>
-        
-      </div>
-      </div>
+      <% if(mapbox !== null){ %>
+        <% for (let i = 0; i < mapbox.dailies.length; i++) { %>
+          <b>la recherche souhaité : <%= mapbox.dailies[i].feat %></b><br>
+            <%= mapbox.dailies[i].name %><br><%= mapbox.dailies[i].coord %><br>
+            
+            <b><%= mapbox.dailies[i].context_text %></b><br><br>
+        <% } %>   
+      <% } %>   
+      
     </div>
   </body>
 </html>

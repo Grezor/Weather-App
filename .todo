@@ -1,0 +1,5 @@
+- mapbox : 
+- recuperer les informations de l'input
+- entrer une ville, et afficher la liste
+- si la personne clic sur la ville souhaiter, ca affiche dans le body
+- on recuperer la ville via feature[city].place_name

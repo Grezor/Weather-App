@@ -11,7 +11,7 @@ const ModuleWeatherIcons = {
             '11d': '/img/thunderstorm.png',
             '13d': '/img/snow.png',
             '50d': '/img/mist.png',
-            '04n': '/img/clouds.png',
+            '04n': '/img/news/clouds.jpg',
             'err': '/img/error.png',
             '01n': '/img/night/01n.png',
             '02n': '/img/night/02n.png',
