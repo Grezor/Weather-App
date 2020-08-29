@@ -1,101 +1,40 @@
-/* eslint-disable no-undef */
-const express = require('express')
-const bodyParser = require('body-parser')
-const request = require('request')
-const app = express()
-const weatherResponseOneDay = require('./function/apiOneDay')
-const weatherResponse7days = require('./function/api7days')
-const ApiMapBox = require('./function/mapboxApi')
-const callfunction = require('./function/functionsApi')
-
 require('dotenv').config({
     path: __dirname + '/.env'
 })
-// clé
-const apiKey = `${process.env.APIKEY}`
-const apimapbox = `${process.env.APIMAPBOX}`
-//  le moteur de modèle à utiliser ici ejs
-app.set('view engine', 'ejs'); 
- // Pour utiliser plusieurs répertoires statiques actifs
-app.use(express.static('public'))
-app.use(bodyParser.urlencoded({
-    extended: true
-}))
 
-app.get('/', function (req, res) {
+const express = require( 'express')
+const bodyParser = require( 'body-parser')
+const cors = require('cors')
+const weather = require('./src/controllers/weather')
+
+const router = express()
+router.use(bodyParser.urlencoded({extended: false}))
+router.use(bodyParser.json())
+
+router.use(cors())
+
+//  le moteur de modèle à utiliser ici ejs
+router.set('view engine', 'ejs'); 
+ // Pour utiliser plusieurs répertoires statiques actifs
+router.use(express.static('public'))
+
+router.get('/', function (req, res) {
     res.render('index', {
         weather: null,
         error: null
     })
 })
 
-app.get('/api', function (req, res) {
-    res.render('api', {
-        weather: null,
-        error: null
-    })
-})
-/**
- * Méteo du Jour
- */
-app.post('/', function (req, res) {
-    const city = req.body.city
-    const lang = 'fr'
-    const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&lang=${lang}&units=metric&wind=Metric&appid=${apiKey}&lang=fr`
+router.use('/api/weather', weather)
 
-    request(url, function (err, response, body) {
-        if (err) {
-            return res.render('index', {
-                weather: null,
-                error: 'Une erreur es survenu'
-            })
-        }
-        const weatherResponse = JSON.parse(body)
-        res.render('index', weatherResponseOneDay.transformWeatherResponse(weatherResponse))
+router.get('/api', function(req, res) {
+    res.json({
+        message: 'welcome weather'
     })
+    res.end()
 })
 
-app.post('/api', function (req, res) {
-    const city = req.body.city
-    const lat = req.body.lat
-    const long = req.body.long
-    const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric&lang=fr`
-    request(url, function (err, response, body) {
-        if (err) {
-            return res.render('api', {
-                weather: null,
-                error: 'Une erreur es survenu'
-            })
-        }
-        const weatherResponse = JSON.parse(body)
-        res.render('api', weatherResponse7days.respons2(weatherResponse))
-    })
-})
-/**
-*   Mapbox 
-*/
-app.all('/mapbox', function (req, res) {
-    const city = encodeURI(req.body.city)
-    const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=${apimapbox}`
-    request(url, function (err, response, body) {
-        if (err) {
-            return res.render('mapbox', {
-                mapbox: null,
-                error: 'Une erreur es survenu'
-            })
-        }
-        const weatherResponse = JSON.parse(body)
-        res.render('mapbox', ApiMapBox.responseMapbox(weatherResponse));
-        // const weatherResponse = JSON.parse(body)
-        // res.render('mapbox', weatherResponse)
-    })
-})
-
-/**
- * Serveur web : 
- */
-const server = app.listen(3000, function () {
-    const host = 'localhost';
-    const port = server.address().port;
-    console.log('running at http://' + host + ':' + port)
+const hostPort = process.env.HOST_PORT || 3000
+router.listen(hostPort, function(){
+    console.log(`listening *:${hostPort}...`)
 })

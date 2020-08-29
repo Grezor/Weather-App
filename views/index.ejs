@@ -1,10 +1,25 @@
 <%- include('partials/header') %>
-<div class="container mx-auto">
+<div class="">
   <form class="w-full max-w-sm" action="/" method="post">
     <div class="flex items-center border-b border-teal-500 py-2">
       <input name="city"
         class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
         type="text" placeholder="exemple : Lille" aria-label="Full name">
+         <!-- Autocomplete -->
+      <div class="autocomplete">
+        <label>
+            <input type="text" name="city" class="autocomplete-input">
+        </label>
+
+        <section class="autocomplete-results hidden">
+        </section>
+      </div>
+
+      <button type="button">Valider</button>
+
+      <div class="result" id="result" style="margin-top: 400px">
+          Résultat de l'API
+      </div>
       <button
         class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
         type="submit">
@@ -16,16 +31,14 @@
     <% if(weather !== null){ %>
     <div class="">
       <div class="flex flex-wrap w-full lg:w-auto">
-        <div class="w-full lg:w-1/2 flex rounded-lg bg-auto">
-          <div class="bg-fixed ..." style="background-image: url('../public/img/error.png')"></div>
-          <div class="rounded-lg py-6 pl-8 pr-32 w-full opacity-90 text-white">
+        <div class="w-full lg:w-1/2 flex rounded-lg">
+          <div class="rounded-lg py-6 pl-8 pr-32 w-full text-white bg-blue-200">
             <div class="mb-20">
               <h2 class="font-bold text-3xl leading-none pb-1">Tuesday</h2>
               <h3 class="leading-none pb-2 pl-1">15 Jan 19</h3>
-              <p class="flex aling-center opacity-75">
-                <img class="w-10" src="/img/icons8-marker-32.png" alt="" srcset="">
+              <p class="flex aling-center">
+                <img class="w-5" src="/img/icons8-marker-32.png" alt="" srcset="">
                 <%= weather.name %>
-               
               </p>
               <span class="inline-block mr-2">Latitude <%= weather.lon %></span>
             <span class="inline-block  mr-2">Longitude <%= weather.lat %></span>

@@ -39,3 +39,9 @@ Framework [Jest](https://jestjs.io/)
 [4]: https://github.com/Grezor
 [3]: https://twitter.com/Geoffrey_Dev
  
+
+ -- 
+
+ http://localhost:3000/api/weather/today?lat=48.86&lon=2.35
+
+ 

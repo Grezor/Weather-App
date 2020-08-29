@@ -1,15 +1,12 @@
-// import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
-// import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
-
 
 const ApiMapBox = {
     
-    transformMapboxResponse: (features) => {
+    transformMapboxResponse: (feature) => {
        return {
-            name: features.place_name,
-            feat: features.type,
-            coord: features.center, 
-            context_text: features.context[0].text,
+            name: feature.place_name,
+            feat: feature.type,
+            coord: feature.center, 
+            context_text: feature.context[0].text,
         }
     },
   
@@ -20,11 +17,11 @@ const ApiMapBox = {
                 error: 'Erreur'
             }
         }
-        
+
         const mapbox = {
             dailies: MapboxResponse.features.map(ApiMapBox.transformMapboxResponse)
         }
-
+        
         return {
             mapbox,
             error: null
