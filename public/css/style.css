@@ -19,48 +19,39 @@ html, body {
 .autocomplete {
     display: inline-block;
     position: relative;
-
     width: 300px;
 }
 
 .autocomplete .autocomplete-input {
     padding: 8px 12px;
     width: 100%;
-
     border: 1px solid rgba(44, 62, 80, 0.4);
     box-shadow: 0 0 8px 0 rgba(44, 62, 80, 0.2);
-
     transition: all 250ms linear;
 }
 
 .autocomplete .autocomplete-input:focus {
-    border: 1px solid rgba(41, 128, 185, 0.75);
+    border: 1px solid rgba(88, 80, 236);
     box-shadow: 0 0 8px 0 rgba(41, 128, 185, 0.2);
 }
 
 .autocomplete .autocomplete-results {
     position: absolute;
-
     left: 0;
     top: 40px;
     width: 100%;
-
     border: 1px solid rgba(44, 62, 80, 0.4);
-
     transition: all 150ms linear;
     visibility: visible;
     opacity: 1;
-
     z-index: 100;
 }
 
 .autocomplete .autocomplete-result {
     display: flex;
     flex-direction: column;
-
     padding: 16px 8px;
     border-bottom: 1px solid rgba(44, 62, 80, 0.4);
-
     cursor: pointer;
 }
 
