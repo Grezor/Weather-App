@@ -12,9 +12,7 @@ const weather = require('./src/controllers/weather')
 const router = express()
 router.use(bodyParser.urlencoded({extended: false}))
 router.use(bodyParser.json())
-
 router.use(cors())
-
 //  le moteur de modèle à utiliser ici ejs
 router.set('view engine', 'ejs'); 
  // Pour utiliser plusieurs répertoires statiques actifs
@@ -29,10 +27,8 @@ router.get('/', async function (req, res) {
         })
         return undefined
     }
-
     const weatherService = new OpenWeather()
     const weatherResponse = await weatherService.today(lat, lon)
-
     res.render('index', weatherResponseOneDay.transformWeatherResponse(weatherResponse))
 })
 
