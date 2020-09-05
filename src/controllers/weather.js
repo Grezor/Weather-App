@@ -8,14 +8,12 @@ const mapboxService = new Mapbox()
 
 weatherRouter.get('/today', async (req, res) => {
     const result = await openWeatherService.today(req.query.lat, req.query.lon)
-
     res.json(result)
     res.end()
 })
 
 weatherRouter.post('/search', async (req, res) => {
     const result = await mapboxService.search(req.body.search)
-
     res.json(result)
     res.end()
 })

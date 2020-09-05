@@ -1,6 +1,8 @@
 require('dotenv').config({
     path: __dirname + '/.env'
 })
+const OpenWeather = require('./src/services/OpenWeather')
+const weatherResponseOneDay = require('./function/apiOneDay')
 
 const express = require( 'express')
 const bodyParser = require( 'body-parser')
@@ -18,11 +20,20 @@ router.set('view engine', 'ejs');
  // Pour utiliser plusieurs répertoires statiques actifs
 router.use(express.static('public'))
 
-router.get('/', function (req, res) {
-    res.render('index', {
-        weather: null,
-        error: null
-    })
+router.get('/', async function (req, res) {
+    const { lat, lon } = req.query
+    if (lat === undefined || lon === undefined) {
+        res.render('index', {
+            weather: null,
+            error: null
+        })
+        return undefined
+    }
+
+    const weatherService = new OpenWeather()
+    const weatherResponse = await weatherService.today(lat, lon)
+
+    res.render('index', weatherResponseOneDay.transformWeatherResponse(weatherResponse))
 })
 
 router.use('/api/weather', weather)
@@ -36,5 +47,5 @@ router.get('/api', function(req, res) {
 
 const hostPort = process.env.HOST_PORT || 3000
 router.listen(hostPort, function(){
-    console.log(`listening *:${hostPort}...`)
+    console.log(`listening http://localhost:${hostPort}...`)
 })

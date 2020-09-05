@@ -1,5 +1,9 @@
 const autocompletes = document.querySelectorAll('.autocomplete')
-
+/**
+ * Apelle l'api meteo 
+ * @param {int} lat 
+ * @param {int} lon 
+ */
 async function callWeatherApi(lat, lon) {
   const response = await fetch(`http://127.0.0.1:3000/api/weather/today?lat=${lat}&lon=${lon}`, {
     method: 'GET',
@@ -10,7 +14,7 @@ async function callWeatherApi(lat, lon) {
   })
 
   const result = await response.json()
-  document.getElementById('result').innerHTML = JSON.stringify(result)
+  document.location = `/?lat=${result.coord.lat}&lon=${result.coord.lon}`
 }
 
 function makeResult(primary, secondary) {
@@ -28,7 +32,10 @@ function makeResult(primary, secondary) {
 
   return result
 }
-
+/**
+ * function autocomplete input
+ * @param {*} autocomplete 
+ */
 function processAutocomplete(autocomplete) {
   const autocompleteInput = autocomplete.querySelector('.autocomplete-input')
   const autocompleteResults = autocomplete.querySelector('.autocomplete-results')

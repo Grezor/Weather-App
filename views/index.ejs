@@ -1,31 +1,23 @@
 <%- include('partials/header') %>
 <div class="">
   <form class="w-full max-w-sm" action="/" method="post">
-    <div class="flex items-center border-b border-teal-500 py-2">
-      <input name="city"
-        class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
-        type="text" placeholder="exemple : Lille" aria-label="Full name">
-         <!-- Autocomplete -->
+
+
+
       <div class="autocomplete">
         <label>
-            <input type="text" name="city" class="autocomplete-input">
+            <input type="text" name="city" class="autocomplete-input" placeholder="exemple : Lille">
         </label>
 
         <section class="autocomplete-results hidden">
         </section>
-      </div>
-
-      <button type="button">Valider</button>
-
-      <div class="result" id="result" style="margin-top: 400px">
-          Résultat de l'API
       </div>
       <button
         class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
         type="submit">
         Validation
       </button>
-    </div>
+  
   </form>
   <div class="relative container mt-5">
     <% if(weather !== null){ %>

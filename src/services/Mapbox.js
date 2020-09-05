@@ -15,7 +15,7 @@ class Mapbox {
         const response = await axios.get(uri, {
             params: {
                 ...this.options,
-                limit: 5
+                limit: 10
             }
         })
         return response.data

@@ -10,7 +10,11 @@ class OpenWeather {
       wind: 'metric'
     }
   }
-
+  /**
+   * Méteo du jour
+   * @param {int} lat 
+   * @param {int} lon 
+   */
   async today(lat, lon) {
     const uri = this.generateUri('/weather')
     const query = {
