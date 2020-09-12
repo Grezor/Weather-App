@@ -27,3 +27,6 @@
                   // 
                   sunrise: daily.sunrise,
                   sunset: daily.sunset -->
+
+// mapbox 
+{# <p><%= JSON.stringify(mapbox) %></p> #}

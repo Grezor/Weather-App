@@ -1,11 +1,11 @@
 const icon = require('./icon')
 const callfunction = require('./functionsApi')
 
-const api2 = {
+const api7Days = {
     
     transformDaily: (daily) => {
         return {
-            dt: api2.timestampToDate(daily.dt),
+            dt: callfunction.timestampToDate(daily.dt),
             icon: icon.getIcon7days(daily.weather[0].icon),
             tempDays: daily.temp.day,
             min: Math.round(daily.temp.min),
@@ -34,7 +34,7 @@ const api2 = {
             }
         }
         const weather = {
-            dailies: weatherResponse.daily.map(api2.transformDaily)
+            dailies: weatherResponse.daily.map(api7Days.transformDaily)
         }
         return {
             weather,
@@ -43,5 +43,5 @@ const api2 = {
     }
 }
 
-module.exports = api2
+module.exports = api7Days
 

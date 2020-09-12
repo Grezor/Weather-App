@@ -1,91 +1,57 @@
-/* eslint-disable no-undef */
-const express = require('express')
-const bodyParser = require('body-parser')
-const request = require('request')
-const app = express()
-const weatherR = require('./function/api1')
-const weatherR2 = require('./function/api2')
-const callfunction = require('./function/functionsApi')
-
 require('dotenv').config({
     path: __dirname + '/.env'
 })
-// clé
-const apiKey = `${process.env.APIKEY}`
-const apimapbox = `${process.env.APIMAPBOX}`
+const OpenWeather = require('./src/services/OpenWeather')
+const weatherResponseOneDay = require('./function/apiOneDay')
+const weatherResponseSevenDay = require('./function/api7Days')
+const express = require( 'express')
+const bodyParser = require( 'body-parser')
+const cors = require('cors')
+const weather = require('./src/controllers/weather')
+
+const router = express()
+router.use(bodyParser.urlencoded({extended: false}))
+router.use(bodyParser.json())
+router.use(cors())
 //  le moteur de modèle à utiliser ici ejs
-app.set('view engine', 'ejs'); 
+router.set('view engine', 'ejs'); 
  // Pour utiliser plusieurs répertoires statiques actifs
-app.use(express.static('public'))
-app.use(bodyParser.urlencoded({
-    extended: true
-}))
+router.use(express.static('public'))
 
-app.get('/', function (req, res) {
-    res.render('index', {
-        weather: null,
-        error: null
-    })
+router.get('/', async function (req, res) {
+    const { lat, lon } = req.query
+    if (lat === undefined || lon === undefined) {
+        res.render('index', {
+            weather: null,
+            error: null
+        })
+        return undefined
+    }
+    const weatherService = new OpenWeather()
+    const weatherResponse = await weatherService.today(lat, lon)
+    res.render('index', weatherResponseOneDay.transformWeatherResponse(weatherResponse))
 })
 
-app.get('/api', function (req, res) {
-    res.render('api', {
-        weather: null,
-        error: null
-    })
-})
-/**
- * Méteo du Jour
- */
-app.post('/', function (req, res) {
-    const city = req.body.city
-    const lang = 'fr'
-    const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&lang=${lang}&units=metric&wind=Metric&appid=${apiKey}&lang=fr`
+router.use('/api/weather', weather)
 
-    request(url, function (err, response, body) {
-        if (err) {
-            return res.render('index', {
-                weather: null,
-                error: 'Une erreur es survenu'
-            })
-        }
-        const weatherResponse = JSON.parse(body)
-        res.render('index', weatherR.transformWeatherResponse(weatherResponse))
-    })
+router.get('/sevendays', async function (req, res) {
+    const { lat, lon } = req.query
+    if (lat === undefined || lon === undefined) {
+        res.render('api', {
+            weather: null,
+            error: null
+        })
+        return undefined
+    }
+    const weatherService = new OpenWeather()
+    const weatherResponse = await weatherService.sevendays(lat, lon)
+
+    res.render('api', weatherResponseSevenDay.respons2(weatherResponse))
 })
 
-app.post('/api', function (req, res) {
-    const city = req.body.city
-    const url = `https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&appid=${apiKey}&units=metric&lang=fr`
-    request(url, function (err, response, body) {
-        if (err) {
-            return res.render('api', {
-                weather: null,
-                error: 'Une erreur es survenu'
-            })
-        }
-        const weatherResponse = JSON.parse(body)
-        res.render('api', weatherR2.respons2(weatherResponse))
-    })
-})
+router.use('/api/sevendays', weather)
 
-app.get('/mapbox', function (req, res) {
-    const city = encodeURI(req.body.city)
-    const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=${apimapbox}`
-    request(url, function (err, response, body) {
-        if (err) {
-            return res.render('api3', {
-                weather: null,
-                error: 'Une erreur es survenu'
-            })
-        }
-        const weatherResponse = JSON.parse(body)
-        res.render('api3', weatherResponse)
-    })
-})
-/**
- * Serveur web : 
- */
-app.listen(3000, function () {
-    console.log('le serveur est sur le port 3000!')
+const hostPort = process.env.HOST_PORT || 3000
+router.listen(hostPort, function(){
+    console.log(`listening http://localhost:${hostPort}...`)
 })
