@@ -1,7 +1,7 @@
 <%- include('partials/header') %>
 <div class="container">
   <form class="w-full max-w-sm" action="/" method="post">
-      <div class="autocomplete">
+      <div class="autocomplete" data-type="oneday">
         <label>
             <input type="text" name="city" class="autocomplete-input mt-auto  focus:border-purple-500" placeholder="exemple : Lille">
           </label>
@@ -24,17 +24,17 @@
     <% if(weather !== null){ %>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-wrap w-full lg:w-auto">
-        <div class="w-full lg:w-1/2 flex rounded-lg border-2 border-indigo-600">
+        <div class="w-full lg:w-1/2 flex rounded-lg border-2 bg-indigo-600">
           <div class="rounded-lg py-6 pl-8 pr-32 w-full text-black bg-grey-light">
-            <div class="mb-20">
-              <h2 class="font-bold text-indigo-600 text-4xl leading-none pb-1"><%= weather.name %></h2>
+            <div class="mb-10">
+              <h2 class="font-bold text-white text-4xl leading-none pb-1"><%= weather.name %></h2>
               <span class="inline-block mr-2">Latitude <%= weather.lon %></span>
             <span class="inline-block  mr-2">Longitude <%= weather.lat %></span>
             </div>
             <div>
               <img class="image mb-2" src="<%= weather.icon %>" alt="">
-              <strong class="leading-none text-6xl block text-indigo-600"><%= weather.temp %>°C</strong>
-              <b class="text-2xl block font-bold"><%= weather.description %></b>
+              <strong class="leading-none text-6xl block text-white"><%= weather.temp %>°C</strong>
+              <b class="text-2xl text-gray-200 block font-bold"><%= weather.description %></b>
             </div>
           </div>
         </div>
@@ -42,20 +42,20 @@
         <div class="w-full lg:w-1/2 flex border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
           <div class="lg:my-3 text-dark p-8 lg:rounded-r-lg w-full">
             <div class="flex justify-between w-64 mb-4 w-full">
-              <div class="w-auto font-bold uppercase text-indigo-600">Precipitation</div>
-              <div class="w-auto text-right"><%= weather.pressure %></div>
+              <div class="w-auto font-bold text-indigo-600">Precipitation</div>
+              <div class="w-auto font-extrabold text-right"><%= weather.pressure %></div>
             </div>
             <div class="flex justify-between w-64 mb-4 w-full">
-              <div class="w-auto font-bold uppercase text-indigo-600">Humidity</div>
-              <div class="w-auto text-right"><%= weather.humidity %> %</div>
+              <div class="w-auto font-bold text-indigo-600">Humidity</div>
+              <div class="w-auto font-extrabold text-right"><%= weather.humidity %> %</div>
             </div>
             <div class="flex justify-between w-64 mb-4 w-full">
-              <div class="w-auto font-bold text-indigo-600 uppercase">Wind</div>
-              <div class="w-auto text-right"><%= weather.speed %> km/h</div>
+              <div class="w-auto font-bold text-indigo-600">Vent</div>
+              <div class="w-auto font-extrabold text-right"><%= weather.speed %> km/h</div>
             </div>
             <div class="flex justify-between w-64 mb-8 w-full">
-              <div class="w-auto font-bold text-indigo-600 uppercase">Nuage</div>
-              <div class="w-auto text-right"><%= weather.clouds %> %</div>
+              <div class="w-auto font-bold text-indigo-600">Nuage</div>
+              <div class="w-auto font-extrabold text-right"><%= weather.clouds %> %</div>
             </div>
 
             <div class="flex flex-row">

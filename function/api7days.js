@@ -6,7 +6,7 @@ const api7Days = {
     transformDaily: (daily) => {
         return {
             dt: callfunction.timestampToDate(daily.dt),
-            icon: icon.getIcon7days(daily.weather[0].icon),
+            // icon: icon.getIcon7days(daily.weather.icon),
             tempDays: daily.temp.day,
             min: Math.round(daily.temp.min),
             max: Math.round(daily.temp.max),

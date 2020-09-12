@@ -12,6 +12,12 @@ weatherRouter.get('/today', async (req, res) => {
     res.end()
 })
 
+weatherRouter.get('/sevendays', async (req, res) => {
+    const result = await openWeatherService.sevendays(req.query.lat, req.query.lon)
+    res.json(result)
+    res.end()
+})
+
 weatherRouter.post('/search', async (req, res) => {
     const result = await mapboxService.search(req.body.search)
     res.json(result)

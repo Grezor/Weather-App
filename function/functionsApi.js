@@ -20,12 +20,12 @@ const functionApi = {
         const hours = date.getHours()
         const minutes = '0' + date.getMinutes()
         const formattedTime = hours + ':' + minutes.substr(-2)
+        console.log('sunsetandsunrise', formattedTime)
         return formattedTime
     },
 
-    /**
-    * API 2 
-    * Convertie timestamp en Date
+    /** 
+    * Convertie timestamp en Date (Api 2)
     * retourne la date : J/M/A
     */
     timestampToDate: (unixTimestamp) => {
@@ -33,6 +33,7 @@ const functionApi = {
         const year = new Intl.DateTimeFormat('fr', { year: 'numeric' }).format(date)
         const month = new Intl.DateTimeFormat('fr', { month: '2-digit' }).format(date)
         const day = new Intl.DateTimeFormat('fr', { day: '2-digit' }).format(date)
+        console.log(day, month, year)
         return `${day}/${month}/${year}`
     },
 

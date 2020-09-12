@@ -1,6 +1,6 @@
 const autocompletes = document.querySelectorAll('.autocomplete')
 /**
- * Apelle l'api meteo 
+ * Jour J
  * @param {int} lat 
  * @param {int} lon 
  */
@@ -15,6 +15,23 @@ async function callWeatherApi(lat, lon) {
 
   const result = await response.json()
   document.location = `/?lat=${result.coord.lat}&lon=${result.coord.lon}`
+}
+/**
+ * 7 Days
+ * @param {int} lat 
+ * @param {int} lon 
+ */
+async function call7DaysWeatherApi(lat, lon) {
+  const response = await fetch(`http://127.0.0.1:3000/api/weather/sevendays?lat=${lat}&lon=${lon}`, {
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+  })
+
+  const result = await response.json()
+  document.location = `/sevendays?lat=${result.lat}&lon=${result.lon}`
 }
 
 function makeResult(primary, secondary) {
@@ -37,6 +54,7 @@ function makeResult(primary, secondary) {
  * @param {*} autocomplete 
  */
 function processAutocomplete(autocomplete) {
+  const autocompleteType = autocomplete.dataset.type
   const autocompleteInput = autocomplete.querySelector('.autocomplete-input')
   const autocompleteResults = autocomplete.querySelector('.autocomplete-results')
 
@@ -82,7 +100,13 @@ function processAutocomplete(autocomplete) {
         autocompleteResults.classList.add('hidden')
 
         const coord = feature.geometry.coordinates
-        await callWeatherApi(coord[1], coord[0])
+
+        if (autocompleteType === 'oneday') {
+          await callWeatherApi(coord[1], coord[0])
+        }
+        if (autocompleteType === 'sevenday') {
+          await call7DaysWeatherApi(coord[1], coord[0])
+        }
       })
 
       autocompleteResults.appendChild(autocompleteResult)

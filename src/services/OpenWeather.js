@@ -31,6 +31,21 @@ class OpenWeather {
     return response.data
   }
 
+  async sevendays(lat, lon) {
+    const uri = this.generateUri('/onecall')
+    const query = {
+      lat, lon
+    }
+
+    const response = await axios.get(uri, {
+      params: {
+        ...query,
+        ...this.options
+      }
+    })
+    return response.data
+  }
+
   generateUri(endpoint) {
     return `${this.base}${endpoint}`
   }
