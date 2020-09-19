@@ -30,7 +30,7 @@
     |-- index.js
     |-- mapbox.js
 |-- .env                    // clé d'accès (openweatherMap/ MapBox)
-|-- server.js               // le serveur
+|-- server.js               // 
 
 
 
