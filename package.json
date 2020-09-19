@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",
-    "test": "jest"
+    "test": "jest",
+    "update": "ncu -u && npm install"
   },
-  "author": "",
+  "author": "Geoffrey",
   "license": "ISC",
   "dependencies": {
     "@mapbox/mapbox-gl-geocoder": "^4.7.0",
@@ -20,7 +21,7 @@
     "request": "^2.88.2"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.13",
+    "@types/jest": "^26.0.14",
     "dotenv": "^8.2.0",
     "eslint": "^7.9.0",
     "jest": "^26.4.2"

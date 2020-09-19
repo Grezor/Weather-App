@@ -2,6 +2,7 @@
 const axios = require ('axios')
 
 class Mapbox {
+    
     constructor(){
         this.base = 'https://api.mapbox.com/geocoding/v5'
         this.options = {

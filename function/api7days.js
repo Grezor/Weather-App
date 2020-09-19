@@ -26,7 +26,7 @@ const api7Days = {
         }
     },
 
-    respons2: (weatherResponse) => {
+    response7days: (weatherResponse) => {
         if (!weatherResponse.daily) {
             return {
                 weather: null,

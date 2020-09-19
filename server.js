@@ -46,12 +46,12 @@ router.get('/sevendays', async function (req, res) {
     const weatherService = new OpenWeather()
     const weatherResponse = await weatherService.sevendays(lat, lon)
 
-    res.render('api', weatherResponseSevenDay.respons2(weatherResponse))
+    res.render('api', weatherResponseSevenDay.response7days(weatherResponse))
 })
 
 router.use('/api/sevendays', weather)
 
 const hostPort = process.env.HOST_PORT || 3000
 router.listen(hostPort, function(){
-    console.log(`listening http://localhost:${hostPort}...`)
+    console.log(`listening http://localhost:${hostPort}`)
 })
