@@ -1,24 +1,23 @@
 ![Black and White General Greeting Liberation Day Twitter Header](https://user-images.githubusercontent.com/38507456/86512535-65c7e580-be03-11ea-8833-eabacd5c92c3.png)
 
 # Introduction 
-J'étais fatigué de sortir et de voir quel temps il faisait dehors. Fatigué d'utiliser l'application météo de google.
-Cette simple application météo n'affichera que la météo actuelle pour une zone donnée.
+I was tired of going out and seeing what the weather was like outside. Tired of using the google weather application.
+This simple weather application will only display the current weather for a given area. 
 
-De plus, j'ai toujours voulu savoir comment fonctionne une consommation d'API REST.
+Also, I always wanted to know how a REST API consumption works.
 
-Tout en apprenant le NodeJS, je voulais faire quelque chose de simple et de rapide. Ce projet, est une application web me permettant d'afficher la météo, la température ou l'humidité, le vent, les prévisions sur 1 semaine...
+While learning NodeJS, I wanted to do something simple and fast. This project, is a web application allowing me to display the weather, temperature or humidity, wind, 1 week forecast...
 
 # Installation
 Pour l'installation du projet tout est expliquer dans le **dossier chapitres**, puis le répertoire **installation** 
 
-## Démarrage: 
 
 # Ressources 
 - OpenWeather [Infos](https://openweathermap.org/guide)
 - Mapbox [Infos](https://docs.mapbox.com/api/search/#geocoding)
 
 ## L'état du projet
-fonctionne
+✔️ - Fonctionne
 
 
 
