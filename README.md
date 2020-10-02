@@ -9,8 +9,8 @@
    * [Api](#Api)
    * [Functionality](#Functionality)
    * [Utilisation](#Utilisation)
-   * [L'etat du projet](#Etat-du-projet)
-   * [Deployement](#Deployement)
+   * [Project status](#Project-status)
+   * [Deployment](#Deployment)
    * [Contribute](#Contribute)
    * [Author](#Author)
 
@@ -30,11 +30,24 @@ For the installation of the project everything is explained in the **chapters fo
 Javascript, Node.JS, CSS
 ```
 ## Start
+- On Github, go to the main page of the project
+- Open a terminal, or git bash
+- Replace the current working directory with the location where you want to clone it.
+- Type ```git clone https://github.com/Grezor/Weather-App.git ```
+- Press on ```Entry```
+- Once the installation is complete, type **npm -i** in the terminal.     Install the dependencies in the local node_modules folder.
+- Type : **npm start** in the terminal
+- result terminal : 
 ```
-- git clone [name_project]
-- npm i
-- npm start
+[nodemon] 2.0.4
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] watching extensions: js,mjs,json
+[nodemon] starting `node server.js`
+listening http://localhost:3000
 ```
+- Open your browser: type **http://localhost:3000**
+
 ## Illustration
 ```
 In progress
@@ -61,10 +74,9 @@ https://api.mapbox.com/geocoding/v5
  [more infos mapbox](https://github.com/Grezor/Weather-App/blob/master/chapitres/mapbox/mapbox.md)
 
 
-
 ## Functionality
-- Today
-- Week 
+- Today : **http://localhost:3000/**
+- Week : **http://localhost:3000/sevendays**
 - temperature of the week
 
 ## Use
