@@ -58,7 +58,7 @@ A API is open and offered by the program owner. It is a concept and an intangibl
 - The application returns the information from the api via the name of the city.
 - Weather visualization
 
-## Etat-du-projet
+## Project status
 ✔️ - the application works correctly
 ## Deployement 
 ```
