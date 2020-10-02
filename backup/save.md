@@ -30,3 +30,7 @@
 
 // mapbox 
 {# <p><%= JSON.stringify(mapbox) %></p> #}
+
+# Ressources 
+- OpenWeather [Infos](https://openweathermap.org/guide)
+- Mapbox [Infos](https://docs.mapbox.com/api/search/#geocoding)
