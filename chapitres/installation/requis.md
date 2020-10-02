@@ -1,4 +1,4 @@
-# Requis
+# required
 Pour faire fonctionner cette application, il vous faudra d'installer :
 - NodeJS [Installation](https://nodejs.org/en/)
 - Postman [Installation](https://www.postman.com/downloads/)
@@ -10,6 +10,6 @@ Pour faire fonctionner cette application, il vous faudra d'installer :
 - Nodemon [infos](https://www.npmjs.com/package/nodemon)
 - Axios [infos](https://www.npmjs.com/package/axios)
 
-# Plus d'infos :
-- mores infos: [wiki](https://github.com/Grezor/Weather-App/wiki)
+# Mores Infos
+- wiki: [wiki](https://github.com/Grezor/Weather-App/wiki)
 - Visuel app : [Chapitre Visuel](https://github.com/Grezor/Weather-App/chapitres/capture)

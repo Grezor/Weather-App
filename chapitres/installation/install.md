@@ -1,25 +1,21 @@
-# Chapitre 1 : Installation
+# Chapter 1: Installation
 
-Vous êtes surment nouveau, ou bien vous connaissez Github. Si vous débuter ce chapitre est fait pour vous !
-Veuillez retourner a la racine du projet.
+You are probably new to Github, or you know Github. If you're new to the game, this chapter is for you!
+Please go back to the root of the project.
 
-Ils existent deux possibilité de cloner mon projet : 
-- git clone [nom du projet]
-- telecharger via un bouton github (debutant)
+There are two possibilities to clone my project: 
+- git clone [project name]
+- download via a github button (beginner)
 
-## Pour débutant :
-- Sur Github, accéder a la page principale du projet
-- Au dessus de la liste des fichiers, cliquez sur Code (bouton vert)
-- Cliquez sur download ZIP
-"le projet est sur votre ordinateur"
+## For beginners
+- On Github, go to the main page of the project
+- Above the list of files, click on Code (green button).
+- Click on download ZIP
+"the project is on your computer"
 
-## Pour Expert : 
-- Sur Github, accéder a la page principale du projet
-- Ouvrez un terminal, ou bien git bash
-- Remplacer le répertoire de travail actuel par l'emplacement ou vous le voulez le cloné
-- Taper ```git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY ```
-- appuiez sur ```Entrée ```
-
-## Informations :
-Lors du clonage du projet il est possible que vous rencontriez des erreurs.
-Vous pouvez vous connecter en HTTPS. Pour plus d'informations, consultez [« Erreurs de clonage HTTPS ».](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/https-cloning-errors)
+## For Expert 
+- On Github, go to the main page of the project
+- Open a terminal, or git bash
+- Replace the current working directory with the location where you want to clone it.
+- Type ```git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY ```
+- press on ```Entry```

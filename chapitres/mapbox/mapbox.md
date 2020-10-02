@@ -1,13 +1,18 @@
-## Apercu :
-Mapbox permet de faire différentes choses avec les données du site comme :
-- Personnalisé les cartes dans les moindres détails
-- Télécharger ou créez des données personnalisées
-- Développez des applications web et mobies complétes
+## Preview :
+Mapbox allows you to do different things with the site data such as :
+- Customize the maps in every detail
+- Upload or create custom data
+- Develop complete web and mobile applications
 
-## Mapbox : une alternative au géant google maps ?
-oui, mapbox est une alternative a google maps, mais je trouve que mapbox propose beaucoup plus de services que google maps, a proposer juste une carte.
+## Mapbox: an alternative to the giant google maps?
+Yes, mapbox is an alternative to google maps, but I find that mapbox offers many more services than google maps, just a map.
 
-## Pourquoi avoir choisi mapbox ?
-Les informations que je souhaité sont les coordonnées d'un lieux précis. 
-J'ai choisi mapbox, car google maps developer (payant). Puis ce que proposer google maps sont des maps static ou dynamic.
-MapBox a plusieurs services, notament les coordonnées longitude et altitude, mais aussi la création de cartes.
+## Why did you choose mapbox?
+The information I want is the contact details of a specific location. 
+I chose mapbox because google maps developer (paying). Then what google maps offers are static or dynamic maps.
+MapBox has several services, including longitude and altitude coordinates, but also the creation of maps.
+
+
+
+## more informations api search 
+[search service Geocoding API](https://docs.mapbox.com/api/search/)

@@ -1,13 +1,14 @@
-## lancer le serveur :
--   npm start
-
-## installer le dossier node_modules : 
+## Start serveur :
+```
+-  npm start
+```
+## install node_modules folder : 
+```
 - npm i
-
-## mettre a jour les packages: 
+```
+## update packages : 
+```
 1) ncu
 2) ncu -u
 3) npm install
-
-ou bien vous pouvez taper la commande : 
-- npm MiseAJour
+```

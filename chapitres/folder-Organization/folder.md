@@ -1,3 +1,4 @@
+```
 |-- chapitres 
     |-- installation
     |-- openWeatherMap
@@ -30,8 +31,9 @@
     |-- index.js
     |-- mapbox.js
 |-- .env                    // clé d'accès (openweatherMap/ MapBox)
-|-- server.js               // 
+|-- server.js               
 
+```
 
 
 
