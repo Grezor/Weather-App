@@ -38,16 +38,11 @@ Javascript, Node.JS, CSS
 ```
 ## Illustration
 ```
-- npm i
-- npm start
+In progress
 ```
-## Api
-```
-API is an acronym for Applications Programming Interface. 
-A API is therefore a programming interface that allows you to "plug in" to an application to exchange data.
-It operates on an input/output agreement, it is a distribution channel. 
-A API is open and offered by the program owner. It is a concept and an intangible element.
-```
+## API
+API is an acronym for Applications Programming Interface. A API is therefore a programming interface that allows you to "plug in" to an application to exchange data.It operates on an input/output agreement, it is a distribution channel. A API is open and offered by the program owner. It is a concept and an intangible element.
+
 ## Functionality
 - Today
 - Week 
