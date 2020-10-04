@@ -2,6 +2,7 @@
 
 # Table of content: 
    * [Introduction](#Introduction)
+   * [Requirements](#Requirements)
    * [Installation](#Installation)
    * [Technologies](#Technologies)
    * [Start](#Start)
@@ -21,6 +22,13 @@ This simple weather application will only display the current weather for a give
 Also, I always wanted to know how a REST API consumption works.
 
 While learning NodeJS, I wanted to do something simple and fast. This project, is a web application allowing me to display the weather, temperature or humidity, wind, 1 week forecast...
+
+## Requirements
+- [Node.JS](https://nodejs.org/en/download/) (v14.1.0)
+- [Git](https://git-scm.com/download/) 
+- [Postman](https://www.postman.com/downloads/)
+
+extension chrome : [JSON Viewer](https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh?hl=fr)
 
 ## Installation
 For the installation of the project everything is explained in the **chapters folder**, then the **installation** directory. 
