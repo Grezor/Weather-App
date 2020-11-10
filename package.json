@@ -6,24 +6,24 @@
   "scripts": {
     "start": "nodemon server.js",
     "test": "jest",
-    "update": "ncu -u && npm install"
+    "update": "ncu -u && npm install",
+    "build": ""
   },
   "author": "Geoffrey",
   "license": "ISC",
   "dependencies": {
-    "@mapbox/mapbox-gl-geocoder": "^4.7.0",
     "axios": "^0.20.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
-    "npm-check-updates": "^9.0.1",
     "request": "^2.88.2"
   },
   "devDependencies": {
     "@types/jest": "^26.0.14",
     "dotenv": "^8.2.0",
     "eslint": "^7.9.0",
-    "jest": "^26.4.2"
+    "jest": "^26.4.2",
+    "npm-check-updates": "^9.0.1"
   }
 }

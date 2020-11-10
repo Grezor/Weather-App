@@ -1,4 +1,4 @@
-[[redirects]]
-  from = "/*"
-  to = "/views/index.ejs"
-  status = 200
+[build]
+  # Directory to change to before starting a build.
+  # This is where we will look for package.json/.nvmrc/etc.
+  base = "views/"
