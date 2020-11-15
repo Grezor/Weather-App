@@ -8,25 +8,28 @@ const api7Days = {
             dt: callfunction.timestampToDate(daily.dt),
             icon: icon.getIcon7days(daily.weather[0].icon),
             tempDays: daily.temp.day,
+            main: daily.weather[0].main,
             min: Math.round(daily.temp.min),
             max: Math.round(daily.temp.max),
             night: Math.round(daily.temp.night),
             eve: daily.temp.eve,
             morn: daily.temp.morn, 
-            feels_like_day: daily.feels_like.day,
-            feels_like_night: daily.feels_like.night,
-            feels_like_eve: daily.feels_like.eve,
-            feels_like_morn: daily.feels_like.morn,
+            feels_like_day: Math.round(daily.feels_like.day) + '°c',
+            feels_like_night: Math.round(daily.feels_like.night),
+            feels_like_eve: Math.round(daily.feels_like.eve),
+            feels_like_morn: Math.round(daily.feels_like.morn),
             humidity: Math.round(daily.humidity),
             wind_speed: Math.round(daily.wind_speed),
             weather_main: daily.weather[0].main,
             weather_icon: daily.weather[0].icon,
             sunrise: callfunction.timestampToHour(daily.sunrise),
-            sunset: callfunction.timestampToHour(daily.sunset)
+            sunset: callfunction.timestampToHour(daily.sunset),
+            pop: daily.pop,
         }
     },
-
+   
     response7days: (weatherResponse) => {
+        
         if (!weatherResponse.daily) {
             return {
                 weather: null,

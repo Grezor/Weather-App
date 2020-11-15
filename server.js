@@ -4,6 +4,7 @@ require('dotenv').config({
 const OpenWeather = require('./src/services/OpenWeather')
 const weatherResponseOneDay = require('./function/apiOneDay')
 const weatherResponseSevenDay = require('./function/api7Days')
+const weatherResponsechartsDay = require('./function/charts')
 const express = require( 'express')
 const bodyParser = require( 'body-parser')
 const cors = require('cors')
@@ -50,6 +51,23 @@ router.get('/sevendays', async function (req, res) {
 })
 
 router.use('/api/sevendays', weather)
+
+router.get('/chartdays', async function (req, res) {
+    const { lat, lon } = req.query
+    if (lat === undefined || lon === undefined) {
+        res.render('charts', {
+            weather: null,
+            error: null
+        })
+        return undefined
+    }
+    const weatherService = new OpenWeather()
+    const weatherResponse = await weatherService.chartdays(lat, lon)
+    // console.log(weatherResponse)
+    res.render('charts', weatherResponsechartsDay.responsecharts(weatherResponse))
+})
+
+ router.use('/api/chartdays', weather)
 
 const hostPort = process.env.HOST_PORT || 3000
 router.listen(hostPort, function(){
