@@ -1,5 +1,7 @@
 const axios = require ('axios')
-
+/**
+ *
+ */
 class OpenWeather {
   constructor() {
     this.base = 'https://api.openweathermap.org/data/2.5'
@@ -30,7 +32,11 @@ class OpenWeather {
 
     return response.data
   }
-
+  /**
+   * Meteo sur 7 jours
+   * @param {int} lat 
+   * @param  {int} lon 
+   */
   async sevendays(lat, lon) {
     const uri = this.generateUri('/onecall')
     const query = {

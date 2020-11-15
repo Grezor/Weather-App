@@ -33,8 +33,11 @@ async function call7DaysWeatherApi(lat, lon) {
   const result = await response.json()
   document.location = `/sevendays?lat=${result.lat}&lon=${result.lon}`
 }
-
-
+/**
+ * 
+ * @param {*} lat 
+ * @param {*} lon 
+ */
 async function call7DaysWeatherApicharts(lat, lon) {
   const response = await fetch(`http://127.0.0.1:3000/api/weather/chartdays?lat=${lat}&lon=${lon}`, {
     method: 'GET',
@@ -47,7 +50,11 @@ async function call7DaysWeatherApicharts(lat, lon) {
   const result = await response.json()
   document.location = `/chartdays?lat=${result.lat}&lon=${result.lon}`
 }
-
+/**
+ * 
+ * @param {*} primary 
+ * @param {*} secondary 
+ */
 function makeResult(primary, secondary) {
   const result = document.createElement('div')
   result.classList.add('autocomplete-result')

@@ -6,6 +6,7 @@ const api7Dayschart = {
             dt: callfunction.timestampToDate(daily.dt),
             min: Math.round(daily.temp.min),
             max: Math.round(daily.temp.max),
+            night: Math.round(daily.temp.night),
         }
     },
 
