@@ -1,6 +1,6 @@
 const axios = require ('axios')
 /**
- *
+ * constructeur
  */
 class OpenWeather {
   constructor() {
@@ -51,7 +51,11 @@ class OpenWeather {
     })
     return response.data
   }
-
+  /**
+   * Charts 7 days
+   * @param {*} lat 
+   * @param {*} lon 
+   */
   async chartdays(lat, lon) {
     const uri = this.generateUri('/onecall')
     const query = {

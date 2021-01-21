@@ -9,6 +9,7 @@ const api7Days = {
             icon: icon.getIcon7days(daily.weather[0].icon),
             tempDays: daily.temp.day,
             main: daily.weather[0].main,
+            description : daily.weather[0].description,
             min: Math.round(daily.temp.min),
             max: Math.round(daily.temp.max),
             night: Math.round(daily.temp.night),
@@ -24,7 +25,7 @@ const api7Days = {
             weather_icon: daily.weather[0].icon,
             sunrise: callfunction.timestampToHour(daily.sunrise),
             sunset: callfunction.timestampToHour(daily.sunset),
-            pop: daily.pop,
+
         }
     },
    
@@ -47,4 +48,3 @@ const api7Days = {
 }
 
 module.exports = api7Days
-

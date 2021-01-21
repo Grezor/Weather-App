@@ -29,7 +29,7 @@
   <canvas id="myChart" style="width: 100%;" height="400"></canvas>
 </div> -->
 
-  <canvas id="myChart" style="width: 100%;" height="400"></canvas>
+<canvas id="myChart" style="width: 100%;" height="400"></canvas>
 
 <div class="grid grid-cols-3 gap-4">
   <% for (let i = 0; i < weather.dailies.length; i++) { %>
@@ -44,16 +44,15 @@
         <div class="w-1/3 px-2">
           <div class="h-16">
             <h1 class="text-center"><%= weather.dailies[i].min %></h1>
-            <span
-              class="font-normal block uppercase w-auto rounded-full font-semibold text-indigo-600 tracking-wide mt-1
+
+            <span class="font-normal block uppercase w-auto rounded-full font-semibold text-indigo-600 tracking-wide mt-1
                text-center ">Min</span>
           </div>
         </div>
         <div class="w-1/3 px-2">
           <div class="h-16">
             <h1 class="text-center"><%= weather.dailies[i].max %></h1>
-            <span
-              class="font-normal block uppercase w-auto rounded-full font-semibold text-indigo-600 tracking-wide mt-1 
+            <span class="font-normal block uppercase w-auto rounded-full font-semibold text-indigo-600 tracking-wide mt-1 
               text-center ">Max</span>
           </div>
         </div>
@@ -61,8 +60,7 @@
         <div class="w-1/3 px-2">
           <div class="h-16">
             <h1 class="text-center"><%= weather.dailies[i].night %></h1>
-            <span
-              class="font-normal block uppercase w-auto rounded-full font-semibold text-indigo-600 tracking-wide mt-1 
+            <span class="font-normal block uppercase w-auto rounded-full font-semibold text-indigo-600 tracking-wide mt-1 
               text-center ">Max</span>
           </div>
         </div>
@@ -78,6 +76,7 @@
   const weatherPoints = [...weatherElements].map((weatherElement) => JSON.parse(weatherElement.dataset.weather))
   const dataMin = weatherPoints.map((weatherPoint) => weatherPoint.min)
   const dataMax = weatherPoints.map((weatherPoint) => weatherPoint.max)
+  const dataNight = weatherPoints.map((weatherPoint) => weatherPoint.night)
   const dataDate = weatherPoints.map((weatherPoint) => weatherPoint.dt)
   // charts
   const ctx = document.getElementById('myChart').getContext('2d');
@@ -86,27 +85,35 @@
     data: {
       labels: dataDate,
       datasets: [{
+          // max
           label: 'Temp min',
           data: dataMax,
           borderColor: [
-            'rgba(255, 99, 132, 1)',
+            '#ff6150',
           ],
-          pointBorderColor: "white",
-          pointBackgroundColor: 'rgba(255, 99, 132, 1)',
-          pointBorderWidth: 1,
-          pointHoverRadius: 8,
-          pointHoverBorderWidth: 2,
+          pointBackgroundColor: '#ff6150',
           pointRadius: 4,
-          pointHitRadius: 10,
-          borderWidth: 2
+
         },
         {
+          // min
           label: 'Temp max',
           data: dataMin,
           borderColor: [
             '#3498db',
           ],
-          borderWidth: 1
+          pointBackgroundColor: '#3498db',
+          pointRadius: '4'
+        },
+        {
+          // Temperature de nuit
+          label: 'Temp night',
+          data: dataNight,
+          borderColor: [
+            '#6C49B8'
+          ],
+          pointBackgroundColor: '#6C49B8',
+          pointRadius: '4'
         }
       ]
     },
@@ -121,15 +128,14 @@
       responsiveAnimationDuration: 0,
       maintainAspectRatio: true,
       aspectRatio: 2,
-
       animation: {
-                animateScale: true,
-                animateRotate: true
-            },
+        animateScale: true,
+        animateRotate: true
+      },
       scales: {
         yAxes: [{
           ticks: {
-
+            beginAtZero: true
           }
         }]
       }

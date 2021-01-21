@@ -30,4 +30,3 @@ const ApiMapBox = {
 }
 
 module.exports = ApiMapBox
-

@@ -51,7 +51,7 @@ async function call7DaysWeatherApicharts(lat, lon) {
   document.location = `/chartdays?lat=${result.lat}&lon=${result.lon}`
 }
 /**
- * 
+ * Resultat
  * @param {*} primary 
  * @param {*} secondary 
  */

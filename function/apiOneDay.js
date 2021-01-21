@@ -38,4 +38,3 @@ const apiOneDay = {
 }
 
 module.exports = apiOneDay
-

@@ -9,7 +9,10 @@ class Mapbox {
             access_token: process.env.APIMAPBOX
         }
     }
-
+    /**
+     * recherche
+     * @param {*} search 
+     */
     async search(search){
         const uri = this.generateUri(`/mapbox.places/${encodeURIComponent(search)}.json`)
 

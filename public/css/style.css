@@ -34,9 +34,11 @@ html, body {
 .autocomplete .autocomplete-results {
     position: absolute;
     left: 0;
-    top: 40px;
+    top: 66px;
     width: 100%;
     border: 1px solid rgba(44, 62, 80, 0.4);
+    color: #fff;
+    background: #5c6e91;
     transition: all 150ms linear;
     visibility: visible;
     opacity: 1;
