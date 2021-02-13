@@ -14,7 +14,7 @@ Header](https://user-images.githubusercontent.com/38507456/86512535-65c7e580-be0
 * [Functionality](#Functionality)
 * [Utilisation](#Utilisation)
 * [Project status](#Project-status)
-* [improvement](#Improvement)
+* [Improvement](#Improvement)
 * [Contribute](#Contribute)
 * [Author](#Author)
 
@@ -108,6 +108,11 @@ https://api.mapbox.com/geocoding/v5
 - visualize the temperature with a graph (chartjs)
 - Change design to application
 - add more weather features
+- chart precipitation
+- converter Celcius to Fahrenheit
+- high and low tide
+- lunar phase
+
 
 ## Contribute
 It's hard. It's always hard the first time you do something. Especially when you are collaborating, making mistakes
