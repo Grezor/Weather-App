@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",
-    "test": "jest",
-    "update": "ncu -u && npm install",
-    "build": ""
+    "update": "outdated"
   },
   "author": "Geoffrey",
   "license": "ISC",
@@ -20,6 +18,6 @@
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
-    "eslint": "^7.19.0"
+    "eslint": "^7.20.0"
   }
 }
