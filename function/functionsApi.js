@@ -42,5 +42,7 @@ const functionApi = {
         const currentyear = now.getFullYear()
         return currentyear;
     },
+
+    
 }
 module.exports = functionApi
