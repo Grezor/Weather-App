@@ -9,6 +9,8 @@ const express = require( 'express')
 const bodyParser = require( 'body-parser')
 const cors = require('cors')
 const weather = require('./src/controllers/weather')
+const { route } = require('./src/controllers/weather')
+// const moon = require('./function/moon')
 
 const router = express()
 router.use(bodyParser.urlencoded({extended: false}))

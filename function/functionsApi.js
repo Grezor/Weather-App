@@ -1,3 +1,5 @@
+
+
 const functionApi = {
     /**
      * API 7 jours 
@@ -39,7 +41,6 @@ const functionApi = {
         const now = new Date()
         const currentyear = now.getFullYear()
         return currentyear;
-    }
-
+    },
 }
 module.exports = functionApi

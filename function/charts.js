@@ -20,7 +20,6 @@ const api7Dayschart = {
         const weather = {
             dailies: weatherResponse.daily.map(api7Dayschart.transformDaily)
         }
-        console.log(weather)
         return {
             weather,
             error: null
