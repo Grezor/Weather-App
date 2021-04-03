@@ -34,6 +34,36 @@ const ModuleWeatherIcons = {
         // pour afficher les icons
         const weatherKey = weatherIcon in weatherIcons ? weatherIcon : 'err'
         return weatherIcons[weatherKey]
+    },
+
+    /**
+     * Icon moon phase
+     * @param {*} MoonIcon 
+     * @returns path de l'image
+        // 0 => New Moon
+        // 1 => Waxing Crescent Moon
+        // 2 => Quarter Moon
+        // 3 => Waxing Gibbous Moon
+        // 4 => Full Moon
+        // 5 => Waning Gibbous Moon
+        // 6 => Last Quarter Moon
+        // 7 => Waning Crescent Moon
+     */
+    getIconMoon: (MoonIcon) => {
+        const MoonIcons = {
+            '0': '/img/moon/newMoon.png',
+            '1': '/img/moon/waxingCrescent.png',
+            '2': '/img/moon/firstQarter.png',
+            '3': '/img/moon/waxingGibbous.png',
+            '4': '/img/moon/fullMoon.png',
+            '5': '/img/moon/wanningGibbous.png',
+            '6': '/img/moon/lastQarter.png',
+            '7': '/img/moon/waningcresent.png',
+        }
+
+        const MoonKey = MoonIcon in MoonIcons ? MoonIcon : 'err'
+        return MoonIcons[MoonKey]
+        
     }
 }
 

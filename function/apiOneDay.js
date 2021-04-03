@@ -1,6 +1,7 @@
 const icon = require('./icon')
 const moon = require('./moon')
 const callfunction = require('./functionsApi')
+const { getIconMoon } = require('./icon')
 const apiOneDay = {
 
 
@@ -11,13 +12,12 @@ const apiOneDay = {
                 error: 'Erreur'
             }
         }
-    
         const weather = {
             lon: weatherResponse.coord.lon,
             lat: weatherResponse.coord.lat,
             name: weatherResponse.name,
             icon: icon.getIconOneDay(weatherResponse.weather[0].icon),
-            moon: moon.moon(Date),
+            moon: icon.getIconMoon(moon.functionMoon()),
             main: weatherResponse.main.humidity,
             description:  weatherResponse.weather[0].description,
             temp: Math.round((weatherResponse.main.temp * 100) / 100),

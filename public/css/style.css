@@ -75,3 +75,7 @@ html, body {
     visibility: hidden;
     opacity: 0;
 }
+
+.moonSize {
+    width: 50px;
+}

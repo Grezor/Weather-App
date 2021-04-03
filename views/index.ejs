@@ -42,10 +42,8 @@
             <div class="flex justify-between w-64 mb-4 w-full">
               <div class="w-auto font-bold text-indigo-600">Precipitation</div>
               <div class="w-auto font-extrabold text-right"><%= weather.pressure %></div>
-               <div class="w-auto font-extrabold text-right"><%= weather.moon %></div>
-               <div id="dice1">
-</div>
-            </div>
+               <!-- <img src="https://i.postimg.cc/gJ0Lpqch/3-zpsbwmrqurt.png" class="moon" id="waxing-gibbous-img"> -->
+              </div>
             <div class="flex justify-between w-64 mb-4 w-full">
               <div class="w-auto font-bold text-indigo-600">Humidity</div>
               <div class="w-auto font-extrabold text-right"><%= weather.humidity %> %</div>
@@ -57,6 +55,10 @@
             <div class="flex justify-between w-64 mb-8 w-full">
               <div class="w-auto font-bold text-indigo-600">Nuage</div>
               <div class="w-auto font-extrabold text-right"><%= weather.clouds %> %</div>
+            </div>
+            <div class="flex justify-between w-64 mb-8 w-full">
+              <div class="w-auto font-bold text-indigo-600">Phase lunaire </div>
+               <img class="image mb-2 moonSize" src="<%= weather.moon %>" alt="">
             </div>
 
             <div class="flex flex-row">
