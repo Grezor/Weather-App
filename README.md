@@ -4,19 +4,20 @@ Header](https://user-images.githubusercontent.com/38507456/86512535-65c7e580-be0
 
 
 # Table of content:
-* [Introduction](#Introduction)
-* [Requirements](#Requirements)
-* [Installation](#Installation)
-* [Technologies](#Technologies)
-* [Start](#Start)
-* [Illustration](#Illustration)
-* [Api](#Api)
-* [Functionality](#Functionality)
-* [Utilisation](#Utilisation)
-* [Project status](#Project-status)
-* [Improvement](#Improvement)
-* [Contribute](#Contribute)
-* [Author](#Author)
+- [Table of content:](#table-of-content)
+  - [Introduction](#introduction)
+  - [Requirements](#requirements)
+  - [Installation](#installation)
+  - [Technologies](#technologies)
+  - [Start](#start)
+  - [Illustration](#illustration)
+  - [API](#api)
+  - [Functionality](#functionality)
+  - [Use](#use)
+  - [Project status](#project-status)
+  - [Improvement](#improvement)
+  - [Contribute](#contribute)
+  - [Author](#author)
 
 ## Introduction
 I was tired of going out and seeing what the weather was like outside. Tired of using the google weather application.
@@ -111,7 +112,7 @@ https://api.mapbox.com/geocoding/v5
 - chart precipitation
 - converter Celcius to Fahrenheit
 - high and low tide
-- lunar phase
+- lunar phase ✔️ // 04/04/21
 
 
 ## Contribute
