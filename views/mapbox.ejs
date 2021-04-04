@@ -1,22 +1,27 @@
 <%- include('partials/header') %>
-    <div class="container mx-auto">
-      <form class="w-full max-w-sm" action="/mapbox" method="post">
-        <div class="flex items-center border-b border-teal-500 py-2">
-          <input name="city" class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="exemple : Lille" aria-label="Full name">
-          <button class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="submit">
-            Validation
-          </button>
-        </div>
-      </form>
-      <% if(mapbox !== null){ %>
-        <% for (let i = 0; i < mapbox.dailies.length; i++) { %>
-          <b>la recherche souhaité : <%= mapbox.dailies[i].feat %></b><br>
-            <%= mapbox.dailies[i].name %><br><%= mapbox.dailies[i].coord %><br>
-            
-            <b><%= mapbox.dailies[i].context_text %></b><br><br>
-        <% } %>   
-      <% } %>   
-      
+<div class="container mx-auto">
+  <form class="w-full max-w-sm" action="/mapbox" method="post">
+    <div class="flex items-center border-b border-teal-500 py-2">
+      <input name="city"
+        class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+        type="text" placeholder="exemple : Lille" aria-label="Full name">
+      <button
+        class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
+        type="submit">
+        Validation
+      </button>
     </div>
-  </body>
+  </form>
+  <% if(mapbox !== null){ %>
+  <% for (let i = 0; i < mapbox.dailies.length; i++) { %>
+  <b>la recherche souhaité : <%= mapbox.dailies[i].feat %></b><br>
+  <%= mapbox.dailies[i].name %><br><%= mapbox.dailies[i].coord %><br>
+
+  <b><%= mapbox.dailies[i].context_text %></b><br><br>
+  <% } %>
+  <% } %>
+
+</div>
+</body>
+
 </html>
