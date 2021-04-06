@@ -1,8 +1,8 @@
 const moon = {
   functionMoon: () => {
-    const year = new Date().getFullYear();
-    const month = new Date().getMonth();
-    const day = new Date().getDate();
+    var year = new Date().getFullYear(),
+      month = new Date().getMonth(),
+      day = new Date().getDate();
 
     if (month < 3) {
       year--;
