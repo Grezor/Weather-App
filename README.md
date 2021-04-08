@@ -40,6 +40,8 @@ Viewer](https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflga
 For the installation of the project everything is explained in the **chapters folder**, then the **installation**
 directory.
 
+****
+
 ## Technologies
 ```
 Javascript, Node.JS, CSS
@@ -63,6 +65,12 @@ folder.
 listening http://localhost:3000
 ```
 - Open your browser: type **http://localhost:3000**
+
+⚠️ **When you install the project on your computer, create an .env at the root of the project. Don't forget to create an account on OpenWeather and MapBox**
+```
+APIKEY='INSERT_KEY'
+APIMAPBOX='INSERT_KEY_MAPBOX'
+```
 
 ## Illustration
 ```
@@ -96,6 +104,7 @@ https://api.mapbox.com/geocoding/v5
 - Today : **http://localhost:3000/**
 - Week : **http://localhost:3000/sevendays**
 - temperature of the week
+- Phase Moon
 
 ## Use
 - The user enters the name of the town or city.
