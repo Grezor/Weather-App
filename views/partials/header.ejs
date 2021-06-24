@@ -1,34 +1,50 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <title>Weather App</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
-    <script src="js/app.js" defer ></script>
-    </head>
-  <body class="">
-    <nav class="flex items-center justify-between flex-wrap bg-indigo-600 p-6">
-      <div class="flex items-center flex-shrink-0 text-white mr-6">
-        <span class="font-semibold text-xl tracking-tight">Hunter Weather</span>
-      </div>
-      <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-        <div class="text-sm lg:flex-grow">
-          <a href="http://localhost:3000/" class="block lg:inline-block font-sans lg:mt-0 text-white hover:text-white mr-4">
-            Méteo du jour
+
+<head>
+  <meta charset="utf-8">
+  <title>Weather App</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/app.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
+    integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg=="
+    crossorigin="anonymous"></script>
+  <script src="js/app.js" defer></script>
+</head>
+
+<body>
+  <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
+    <nav class="navbar-global" aria-label="Global">
+      <div class="navbar-logo">
+        <div class="navbar-logo-content">
+          <a href="/">
+            <span class="sr-only">Workflow</span>
+            <span class="font-semibold text-xl tracking-tight">Hunter Weather</span>
           </a>
-          <a href="http://localhost:3000/sevendays" class="block lg:inline-block font-sans lg:mt-0 text-white hover:text-white mr-4">
-            Méteo du 7 jours
-          </a>
-          <a href="http://localhost:3000/chartdays" class="block lg:inline-block font-sans lg:mt-0 text-white hover:text-white mr-4">
-            charts
-          </a>
-          <a href="http://localhost:3000/moon" class="block lg:inline-block font-sans lg:mt-0 text-white hover:text-white mr-4">
-            Moon
-          </a>
+          <div class="-mr-2 flex items-center md:hidden">
+            <button type="button" class="button-nav" aria-expanded="false">
+              <span class="sr-only">Open main menu</span>
+              <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
-      
+      <div class="menu-content">
+        <a href="http://localhost:3000/" class="menu-list">Today</a>
+
+        <a href="http://localhost:3000/sevendays" class="menu-list">7 days</a>
+
+        <a href="http://localhost:3000/chartdays" class="menu-list">charts 7 days</a>
+
+        <a href="http://localhost:3000/about" class="menu-list">About</a>
+
+        <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Log in</a>
+      </div>
     </nav>
+
+  </div>

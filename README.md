@@ -1,5 +1,4 @@
-![Black and White General Greeting Liberation Day Twitter
-Header](https://user-images.githubusercontent.com/38507456/86512535-65c7e580-be03-11ea-8833-eabacd5c92c3.png)
+![WeatherApp](https://user-images.githubusercontent.com/38507456/86512535-65c7e580-be03-11ea-8833-eabacd5c92c3.png)
 
 
 
@@ -116,11 +115,11 @@ https://api.mapbox.com/geocoding/v5
 
 ## Improvement
 - visualize the temperature with a graph (chartjs)
-- Change design to application
-- add more weather features
+- Change design to application 
+- add more weather features ✔️
 - chart precipitation
 - converter Celcius to Fahrenheit
-- high and low tide
+- high and low tide ✔️
 - lunar phase ✔️ // 04/04/21
 
 

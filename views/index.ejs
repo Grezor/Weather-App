@@ -1,33 +1,31 @@
 <%- include('partials/header') %>
 <div class="container">
-  <form class="w-full max-w-sm" action="/" method="post">
+  <div class=" relative ">
+    <input type="text" id="rounded-email"
+      class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+      placeholder="Your email" />
+  </div>
+  <div class="absolute container">
+    <form class="w-full max-w-sm" action="/" method="post">
       <div class="autocomplete" data-type="oneday">
         <label>
-            <input type="text" name="city" class="autocomplete-input mt-auto  focus:border-purple-500">
-          </label>
-            <button
-            class="flex-shrink-0 bg-teal-500  hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
-            type="submit">
-            Validation
-          </button>
-          <button class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
-            Valider
-          </button>
-
+          <input type="text" name="city" class="autocomplete-input mt-auto  focus:border-purple-500">
+        </label>
         <section class="autocomplete-results hidden">
         </section>
       </div>
-  </form>
-  <div class="relative container mt-5">
+    </form>
     <% if(weather !== null){ %>
+
+    
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-wrap w-full lg:w-auto">
         <div class="w-full lg:w-1/2 flex rounded-lg border-2 bg-indigo-600">
           <div class="rounded-lg py-6 pl-8 pr-32 w-full text-black bg-grey-light">
             <div class="mb-10">
-              <h2 class="font-bold text-white text-4xl leading-none pb-1"><%= weather.name %></h2>
+              <h2 class="nameWeather"><%= weather.name %></h2>
               <span class="inline-block mr-2">Latitude <%= weather.lon %></span>
-            <span class="inline-block  mr-2">Longitude <%= weather.lat %></span>
+              <span class="inline-block  mr-2">Longitude <%= weather.lat %></span>
             </div>
             <div>
               <img class="image mb-2" src="<%= weather.icon %>" alt="">
@@ -37,13 +35,14 @@
           </div>
         </div>
 
-        <div class="w-full lg:w-1/2 flex border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+        <div
+          class="w-full lg:w-1/2 flex border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
           <div class="lg:my-3 text-dark p-8 lg:rounded-r-lg w-full">
             <div class="flex justify-between w-64 mb-4 w-full">
               <div class="w-auto font-bold text-indigo-600">Precipitation</div>
               <div class="w-auto font-extrabold text-right"><%= weather.pressure %></div>
-               <!-- <img src="https://i.postimg.cc/gJ0Lpqch/3-zpsbwmrqurt.png" class="moon" id="waxing-gibbous-img"> -->
-              </div>
+              <!-- <img src="https://i.postimg.cc/gJ0Lpqch/3-zpsbwmrqurt.png" class="moon" id="waxing-gibbous-img"> -->
+            </div>
             <div class="flex justify-between w-64 mb-4 w-full">
               <div class="w-auto font-bold text-indigo-600">Humidity</div>
               <div class="w-auto font-extrabold text-right"><%= weather.humidity %> %</div>
@@ -58,7 +57,7 @@
             </div>
             <div class="flex justify-between w-64 mb-8 w-full">
               <div class="w-auto font-bold text-indigo-600">Phase lunaire </div>
-               <img class="image mb-2 moonSize" src="<%= weather.moon %>" alt="">
+              <img class="image mb-2 moonSize" src="<%= weather.moon %>" alt="">
             </div>
 
             <div class="flex flex-row">
@@ -87,9 +86,9 @@
                 <div class="text-center">
                   <b class="font-medium text-indigo-600 ">Coucher</b><br>
                   <strong class="text-xl"><%= weather.sunset %></strong>
-                </div>               
+                </div>
               </div>
-              
+
             </div>
           </div>
         </div>

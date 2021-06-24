@@ -1,0 +1,83 @@
+
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    outline: none;
+}
+
+html, body {
+    font-family: "DejaVu Sans", sans-serif;
+}
+
+.container {
+    margin: 0 auto;
+    width: 1100px;
+}
+
+.autocomplete {
+    display: inline-block;
+    position: relative;
+    width: 300px;
+}
+
+.autocomplete .autocomplete-input {
+    padding: 8px 12px;
+    width: 100%;
+    border: 1px solid rgba(44, 62, 80, 0.4);
+    box-shadow: 0 0 8px 0 rgba(44, 62, 80, 0.2);
+    transition: all 250ms linear;
+}
+
+.autocomplete .autocomplete-input:focus {
+    border: 1px solid rgba(88, 80, 236);
+    box-shadow: 0 0 8px 0 rgba(41, 128, 185, 0.2);
+}
+
+.autocomplete .autocomplete-results {
+    position: absolute;
+    left: 0;
+    top: 66px;
+    width: 100%;
+    border: 1px solid rgba(44, 62, 80, 0.4);
+    color: #fff;
+    background: #5c6e91;
+    transition: all 150ms linear;
+    visibility: visible;
+    opacity: 1;
+    z-index: 100;
+}
+
+.autocomplete .autocomplete-result {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 8px;
+    border-bottom: 1px solid rgba(44, 62, 80, 0.4);
+    cursor: pointer;
+}
+
+.autocomplete .autocomplete-result:hover {
+    background: rgba(41, 128, 185, 0.25);
+}
+
+.autocomplete .autocomplete-result:last-child {
+    border-bottom: none;
+}
+
+.autocomplete .autocomplete-result strong {
+    font-size: 0.8em;
+    margin-bottom: 4px;
+}
+
+.autocomplete .autocomplete-result em {
+    font-size: 0.7em;
+    opacity: 0.5;
+}
+
+.autocomplete .hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.moonSize {
+    width: 50px;
+}
