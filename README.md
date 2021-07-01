@@ -1,18 +1,15 @@
 ![WeatherApp](https://user-images.githubusercontent.com/38507456/86512535-65c7e580-be03-11ea-8833-eabacd5c92c3.png)
 
-
-
-# Table of content:
   - [Introduction](#introduction)
   - [Requirements](#requirements)
-  - [Installation](#installation)
-  - [Packages](#packages)
   - [Technologies](#technologies)
-  - [Start](#start)
+  - [Installation](#installation)
+    - [Packages](#packages)
+    - [Start](#start)
   - [Illustration](#illustration)
   - [API](#api)
   - [Functionality](#functionality)
-  - [Use](#use)
+    - [Use](#use)
   - [Project status](#project-status)
   - [Improvement](#improvement)
   - [Contribute](#contribute)
@@ -34,7 +31,13 @@ display the weather, temperature or humidity, wind, 1 week forecast...
 
 extension chrome : [JSON
 Viewer](https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh?hl=fr)
-
+## Technologies
+```
+- Node.JS ^16.0.0
+- Javascript
+- CSS
+- Framework CSS (tailwindcss)
+```
 ## Installation
 
 - On Github, go to the main page of the project
@@ -49,14 +52,6 @@ press on Entry
 - Nodemon [infos](https://www.npmjs.com/package/nodemon)
 - Axios [infos](https://www.npmjs.com/package/axios)  
 
-
-## Technologies
-```
-- Node.JS ^16.0.0
-- Javascript
-- CSS
-- Framework CSS (tailwindcss)
-```
 ## Start
 - Enter the project, then go to a terminal 
 - Once the installation is complete, type **npm -i** in the terminal. Install the dependencies in the local node_modules
@@ -73,16 +68,18 @@ listening http://localhost:3000
 ```
 - Open your browser: type **http://localhost:3000**
 
-⚠️ **When you install the project on your computer, `create an .env at the root of the project.` Don't forget to create an account on OpenWeather and MapBox**
+⚠️ When you install the project on your computer, `create an .env at the root of the project.` Don't forget to create an account on OpenWeather and MapBox
+
+`The Documentation folder`, contains all the information needed to create an account, but also where the keys for the 
+`.env file` are
+
 ```
 APIKEY='INSERT_KEY'
 APIMAPBOX='INSERT_KEY_MAPBOX'
 ```
 
 ## Illustration
-```
-In progress
-```
+
 ## API
 API is an acronym for Applications Programming Interface. An API is therefore a programming interface that allows you to
 "plug in" to an application to exchange data. It operates on an input/output agreement, it is a distribution channel. A
