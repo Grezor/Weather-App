@@ -79,6 +79,11 @@ APIMAPBOX='INSERT_KEY_MAPBOX'
 ```
 
 ## Illustration
+### weather of the day
+![weather of the day](https://user-images.githubusercontent.com/38507456/124138786-4a7bce80-da87-11eb-89ee-7c0e47810590.png)
+
+### Page About
+![image](https://user-images.githubusercontent.com/38507456/124139116-97f83b80-da87-11eb-8828-ead12c477612.png)
 
 ## API
 API is an acronym for Applications Programming Interface. An API is therefore a programming interface that allows you to
@@ -138,7 +143,6 @@ environment? This project aims at providing guidance & simplifying the way begin
 you are looking to make your first contribution, follow the steps below.
 
 **[Farcy Corentin](https://github.com/Farcy-Corentin)**
+
 ## Author
 **Duplessi Geoffrey**
-
-

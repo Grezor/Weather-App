@@ -3,7 +3,11 @@
 @tailwind utilities;
 
 .nameWeather{
-  @apply font-sans;
+  @apply font-sans text-4xl text-white;
+}
+
+.geocalisation{
+  @apply inline-block mr-5 mt-5 text-white; 
 }
 .navbar-global {
   @apply relative flex items-center justify-between sm:h-10 lg:justify-start

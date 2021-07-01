@@ -14,14 +14,14 @@
     <% if(weather !== null){ %>
 
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 rounded-xl">
+    <div class="max-w-7xl mx-auto mt-6 px-4 sm:px-6 lg:px-8 rounded-xl">
       <div class="flex flex-wrap w-full lg:w-auto">
         <div class="w-full lg:w-1/2 flex rounded-lg border-2 bg-indigo-600">
           <div class="rounded-lg py-6 pl-8 pr-32 w-full text-black">
             <div class="mb-10">
               <h2 class="nameWeather"><%= weather.name %></h2>
-              <span class="inline-block mr-2">Latitude <%= weather.lon %></span>
-              <span class="inline-block  mr-2">Longitude <%= weather.lat %></span>
+              <span class="geocalisation">Latitude <%= weather.lon %></span>
+              <span class="geocalisation">Longitude <%= weather.lat %></span>
             </div>
             <div>
               <img class="image mb-2" src="<%= weather.icon %>" alt="">
@@ -34,7 +34,7 @@
         <div
           class="w-full lg:w-1/2 flex border-r border-b border-l  lg:border-l-0 lg:border-t bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
           <div class="lg:my-3 text-dark p-8 lg:rounded-r-lg w-full">
-            <div class="flex justify-between w-64 mb-4">
+            <div class="flex justify-between w-64 mb-4 w-full">
               <div class="w-auto font-bold text-indigo-600">Precipitation</div>
               <div class="w-auto font-extrabold text-right"><%= weather.pressure %></div>
 
@@ -44,15 +44,15 @@
               <div class="w-auto font-extrabold text-right"><%= weather.humidity %> %</div>
             </div>
             <div class="flex justify-between w-64 mb-4 w-full">
-              <div class="w-auto font-bold text-indigo-600">Vent</div>
+              <div class="w-auto font-bold text-indigo-600">Wind</div>
               <div class="w-auto font-extrabold text-right"><%= weather.speed %> km/h</div>
             </div>
             <div class="flex justify-between w-64 mb-8 w-full">
-              <div class="w-auto font-bold text-indigo-600">Nuage</div>
+              <div class="w-auto font-bold text-indigo-600">Cloud</div>
               <div class="w-auto font-extrabold text-right"><%= weather.clouds %> %</div>
             </div>
             <div class="flex justify-between w-64 mb-8 w-full">
-              <div class="w-auto font-bold text-indigo-600">Phase lunaire </div>
+              <div class="w-auto font-bold text-indigo-600">Lunar phase</div>
               <img class="image mb-2 moonSize" src="<%= weather.moon %>" alt="">
             </div>
 
@@ -73,14 +73,14 @@
 
               <div class="flex flex-col w-1/4 border-solid border-2 border-indigo-600 rounded-lg mr-2">
                 <div class="text-center">
-                  <b class="font-medium text-indigo-600">Levée</b><br>
+                  <b class="font-medium text-indigo-600">Sunrise</b><br>
                   <strong class="text-xl"><%= weather.sunrise %></strong>
                 </div>
               </div>
 
               <div class="flex flex-col w-1/4 border-solid border-2 border-indigo-600 rounded-lg mr-2">
                 <div class="text-center">
-                  <b class="font-medium text-indigo-600 ">Coucher</b><br>
+                  <b class="font-medium text-indigo-600 ">Sunset</b><br>
                   <strong class="text-xl"><%= weather.sunset %></strong>
                 </div>
               </div>
