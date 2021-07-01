@@ -3,10 +3,10 @@
 
 
 # Table of content:
-- [Table of content:](#table-of-content)
   - [Introduction](#introduction)
   - [Requirements](#requirements)
   - [Installation](#installation)
+  - [Packages](#packages)
   - [Technologies](#technologies)
   - [Start](#start)
   - [Illustration](#illustration)
@@ -28,29 +28,37 @@ While learning NodeJS, I wanted to do something simple and fast. This project, i
 display the weather, temperature or humidity, wind, 1 week forecast...
 
 ## Requirements
-- [Node.JS](https://nodejs.org/en/download/) (v14.1.0)
+- [Node.JS](https://nodejs.org/en/download/) (v14/v16)
 - [Git](https://git-scm.com/download/)
-- [Postman](https://www.postman.com/downloads/)
+- [Postman](https://www.postman.com/downloads/) / - [Insomnia](https://insomnia.rest/download)
 
 extension chrome : [JSON
 Viewer](https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh?hl=fr)
 
 ## Installation
-For the installation of the project everything is explained in the **chapters folder**, then the **installation**
-directory.
 
-****
-
-## Technologies
-```
-Javascript, Node.JS, CSS
-```
-## Start
 - On Github, go to the main page of the project
 - Open a terminal, or git bash
 - Replace the current working directory with the location where you want to clone it.
-- Type ```git clone https://github.com/Grezor/Weather-App.git ```
-- Press on ```Entry```
+- Type ```git clone https://github.com/Grezor/Weather-App.git```
+press on Entry
+  
+## Packages
+- Express [Infos](https://expressjs.com/fr/) / [npm](https://www.npmjs.com/package/express)
+- ESLINT [Infos](https://www.npmjs.com/package/eslint)
+- Nodemon [infos](https://www.npmjs.com/package/nodemon)
+- Axios [infos](https://www.npmjs.com/package/axios)  
+
+
+## Technologies
+```
+- Node.JS ^16.0.0
+- Javascript
+- CSS
+- Framework CSS (tailwindcss)
+```
+## Start
+- Enter the project, then go to a terminal 
 - Once the installation is complete, type **npm -i** in the terminal. Install the dependencies in the local node_modules
 folder.
 - Type : **npm start** in the terminal
@@ -65,7 +73,7 @@ listening http://localhost:3000
 ```
 - Open your browser: type **http://localhost:3000**
 
-⚠️ **When you install the project on your computer, create an .env at the root of the project. Don't forget to create an account on OpenWeather and MapBox**
+⚠️ **When you install the project on your computer, `create an .env at the root of the project.` Don't forget to create an account on OpenWeather and MapBox**
 ```
 APIKEY='INSERT_KEY'
 APIMAPBOX='INSERT_KEY_MAPBOX'
@@ -102,8 +110,8 @@ https://api.mapbox.com/geocoding/v5
 ## Functionality
 - Today : **http://localhost:3000/**
 - Week : **http://localhost:3000/sevendays**
-- temperature of the week
-- Phase Moon
+- temperature of the week 
+- Phase Moon 
 
 ## Use
 - The user enters the name of the town or city.
@@ -114,10 +122,10 @@ https://api.mapbox.com/geocoding/v5
 ✔️ - the application works correctly
 
 ## Improvement
-- visualize the temperature with a graph (chartjs)
-- Change design to application 
+- visualize the temperature with a graph (chartjs) ✔️
+- Change design to application `in progress`
 - add more weather features ✔️
-- chart precipitation
+- chart precipitation `in progress`
 - converter Celcius to Fahrenheit
 - high and low tide ✔️
 - lunar phase ✔️ // 04/04/21
@@ -132,5 +140,8 @@ Reading articles & watching tutorials can help, but what's better than actually 
 environment? This project aims at providing guidance & simplifying the way beginners make their first contribution. If
 you are looking to make your first contribution, follow the steps below.
 
+**[Farcy Corentin](https://github.com/Farcy-Corentin)**
 ## Author
 **Duplessi Geoffrey**
+
+

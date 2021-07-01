@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .nameWeather{
-  @apply bg-red-700;
+  @apply font-sans;
 }
 .navbar-global {
   @apply relative flex items-center justify-between sm:h-10 lg:justify-start
@@ -33,5 +33,9 @@
 
 .navbar-logo-content{
   @apply flex items-center justify-between w-full md:w-auto text-purple-700
+}
+
+.form-oneday {
+  @apply w-full max-w-sm;  
 }
 

@@ -1,5 +1,6 @@
 require('dotenv').config({
-    path: __dirname + '/.env'
+    
+  path: __dirname + '/.env'
 })
 const OpenWeather = require('./src/services/OpenWeather')
 const weatherResponseOneDay = require('./function/apiOneDay')
@@ -9,6 +10,7 @@ const express = require( 'express')
 const bodyParser = require( 'body-parser')
 const cors = require('cors')
 const weather = require('./src/controllers/weather')
+
 // const { route } = require('./src/controllers/weather')
 // const moon = require('./function/moon')
 
@@ -23,60 +25,64 @@ router.set('view engine', 'ejs')
 router.use(express.static('public'))
 
 router.get('/', async function (req, res) {
-    const { lat, lon } = req.query
-    if (lat === undefined || lon === undefined) {
-        res.render('index', {
-            weather: null,
-            error: null
-        })
-        return undefined
-    }
-    const weatherService = new OpenWeather()
-    const weatherResponse = await weatherService.today(lat, lon)
-    res.render('index', weatherResponseOneDay.transformWeatherResponse(weatherResponse))
+  const { lat, lon } = req.query
+  if (lat === undefined || lon === undefined) {
+    res.render('index', {
+      weather: null,
+      error: null
+    })
+    return undefined
+  }
+  const weatherService = new OpenWeather()
+  const weatherResponse = await weatherService.today(lat, lon)
+  res.render('index', weatherResponseOneDay.transformWeatherResponse(weatherResponse))
 })
 
 router.use('/api/weather', weather)
 
+// Route 7 days
 router.get('/sevendays', async function (req, res) {
-    const { lat, lon } = req.query
-    if (lat === undefined || lon === undefined) {
-        res.render('api', {
-            weather: null,
-            error: null
-        })
-        return undefined
-    }
-    const weatherService = new OpenWeather()
-    const weatherResponse = await weatherService.sevendays(lat, lon)
+  const { lat, lon } = req.query
+  if (lat === undefined || lon === undefined) {
+    res.render('api', {
+      weather: null,
+      error: null
+    })
+    return undefined
+  }
+  const weatherService = new OpenWeather()
+  const weatherResponse = await weatherService.sevendays(lat, lon)
 
-    res.render('api', weatherResponseSevenDay.response7days(weatherResponse))
+  res.render('api', weatherResponseSevenDay.response7days(weatherResponse))
 })
 
 router.use('/api/sevendays', weather)
 
+// route charts 7 days
 router.get('/chartdays', async function (req, res) {
-    const { lat, lon } = req.query
-    if (lat === undefined || lon === undefined) {
-        res.render('charts', {
-            weather: null,
-            error: null
-        })
-        return undefined
-    }
-    const weatherService = new OpenWeather()
-    const weatherResponse = await weatherService.chartdays(lat, lon)
-    // console.log(weatherResponse)
-    res.render('charts', weatherResponsechartsDay.responsecharts(weatherResponse))
+  const { lat, lon } = req.query
+  if (lat === undefined || lon === undefined) {
+    res.render('charts', {
+      weather: null,
+      error: null
+    })
+    return undefined
+  }
+  const weatherService = new OpenWeather()
+  const weatherResponse = await weatherService.chartdays(lat, lon)
+  // console.log(weatherResponse)
+  res.render('charts', weatherResponsechartsDay.responsecharts(weatherResponse))
 })
 
 router.use('/api/chartdays', weather)
 
+// route about 
 router.get('/about', function(req, res) {
-    res.render('about.ejs');
-});
+  res.render('about.ejs')
+})
 
-const hostPort = process.env.HOST_PORT || 3000
-router.listen(hostPort, function(){
-    console.log(`listening http://localhost:${hostPort}`)
+const ENV = process.env.HOST_PORT
+const hostPort =  ENV || 3000
+router.listen(hostPort, () => {
+  console.log(`listening http://localhost:${hostPort}`)
 })

@@ -79,10 +79,10 @@ function processAutocomplete(autocomplete) {
   const autocompleteInput = autocomplete.querySelector('.autocomplete-input')
   const autocompleteResults = autocomplete.querySelector('.autocomplete-results')
 
-  async function onAutocompleteInputKeyUp(event) {
+  async function onAutocompleteInputKeyUp() {
     if (autocompleteInput.value.length < 3) {
       autocompleteResults.classList.add('hidden')
-      return null;
+      return null
     }
 
     const response = await fetch('http://127.0.0.1:3000/api/weather/search', {
