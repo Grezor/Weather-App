@@ -1,15 +1,12 @@
-require('dotenv').config({
-    
-  path: __dirname + '/.env'
-})
-const OpenWeather = require('./src/services/OpenWeather')
-const weatherResponseOneDay = require('./function/apiOneDay')
-const weatherResponseSevenDay = require('./function/api7Days')
-const weatherResponsechartsDay = require('./function/charts')
+require('dotenv').config()
+const OpenWeather = require('../services/OpenWeather')
+const weatherResponseOneDay = require('../function/apiOneDay')
+const weatherResponseSevenDay = require('../function/api7Days')
+const weatherResponsechartsDay = require('../function/charts')
 const express = require( 'express')
 const bodyParser = require( 'body-parser')
 const cors = require('cors')
-const weather = require('./src/controllers/weather')
+const weather = require('../controllers/weather')
 
 // const { route } = require('./src/controllers/weather')
 // const moon = require('./function/moon')
@@ -81,8 +78,8 @@ router.get('/about', function(req, res) {
   res.render('about.ejs')
 })
 
-const ENV = process.env.HOST_PORT
-const hostPort =  ENV || 3000
+
+const hostPort =  process.env.PORT || 3000
 router.listen(hostPort, () => {
   console.log(`listening http://localhost:${hostPort}`)
 })

@@ -1,7 +1,7 @@
-const icon = require('./icon');
-const moon = require('./moon');
-const callfunction = require('./functionsApi');
-const { getIconMoon } = require('./icon');
+const icon = require('./icon')
+const moon = require('./moon')
+const callfunction = require('./functionsApi')
+// const { getIconMoon } = require('./icon')
 
 const apiOneDay = {
   transformWeatherResponse: (weatherResponse) => {
@@ -9,7 +9,7 @@ const apiOneDay = {
       return {
         weather: null,
         error: 'Erreur',
-      };
+      }
     }
     const weather = {
       lon: weatherResponse.coord.lon,
@@ -29,13 +29,13 @@ const apiOneDay = {
       speed: Math.round(weatherResponse.wind.speed * 3.6),
       sunset: callfunction.sunsetAndSunrise(weatherResponse.sys.sunset),
       sunrise: callfunction.sunsetAndSunrise(weatherResponse.sys.sunrise),
-    };
+    }
 
     return {
       weather,
       error: null,
-    };
+    }
   },
-};
+}
 
-module.exports = apiOneDay;
+module.exports = apiOneDay
