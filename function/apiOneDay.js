@@ -5,6 +5,7 @@ const { getIconMoon } = require('./icon');
 
 const apiOneDay = {
   transformWeatherResponse: (weatherResponse) => {
+   
     if (!weatherResponse.main) {
       return {
         weather: null,
@@ -12,6 +13,7 @@ const apiOneDay = {
       };
     }
     const weather = {
+      
       lon: weatherResponse.coord.lon,
       lat: weatherResponse.coord.lat,
       name: weatherResponse.name,
@@ -30,7 +32,7 @@ const apiOneDay = {
       sunset: callfunction.sunsetAndSunrise(weatherResponse.sys.sunset),
       sunrise: callfunction.sunsetAndSunrise(weatherResponse.sys.sunrise),
     };
-
+    console.log(weather);
     return {
       weather,
       error: null,

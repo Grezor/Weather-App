@@ -1,18 +1,13 @@
-require('dotenv').config({
-    
-  path: __dirname + '/.env'
-})
+require('dotenv').config()
 const OpenWeather = require('./src/services/OpenWeather')
 const weatherResponseOneDay = require('./function/apiOneDay')
 const weatherResponseSevenDay = require('./function/api7Days')
 const weatherResponsechartsDay = require('./function/charts')
-const express = require( 'express')
-const bodyParser = require( 'body-parser')
+
+const express = require('express')
+const bodyParser = require('body-parser')
 const cors = require('cors')
 const weather = require('./src/controllers/weather')
-
-// const { route } = require('./src/controllers/weather')
-// const moon = require('./function/moon')
 
 const router = express()
 router.use(bodyParser.urlencoded({extended: false}))
@@ -37,7 +32,6 @@ router.get('/', async function (req, res) {
   const weatherResponse = await weatherService.today(lat, lon)
   res.render('index', weatherResponseOneDay.transformWeatherResponse(weatherResponse))
 })
-
 router.use('/api/weather', weather)
 
 // Route 7 days
