@@ -1,0 +1,8 @@
+labels:
+  - name: bug
+    color: CC0000
+  - name: feature
+    color: 336699
+  - name: first-timers-only
+    # include the old name to rename and existing label
+    oldname: Help Wanted

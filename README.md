@@ -95,6 +95,8 @@ API is open and offered by the program owner. It is a concept and an intangible 
 ```
 api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
 ```
+- 5 Day / 3 Hour Forecast
+api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}
 - 7 days
 ```
 https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
