@@ -15,6 +15,10 @@
   - [Contribute](#contribute)
   - [Author](#author)
 
+<a href="https://trackgit.com">
+<img src="https://us-central1-trackgit-analytics.cloudfunctions.net/token/ping/l02ejzntqs994jl5qyhl" alt="trackgit-views" />
+</a>
+
 ## Introduction
 I was tired of going out and seeing what the weather was like outside. Tired of using the google weather application.
 This simple weather application will only display the current weather for a given area.
