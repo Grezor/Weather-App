@@ -32,7 +32,6 @@ const apiOneDay = {
       sunset: callfunction.sunsetAndSunrise(weatherResponse.sys.sunset),
       sunrise: callfunction.sunsetAndSunrise(weatherResponse.sys.sunrise),
     };
-    console.log(weather);
     return {
       weather,
       error: null,

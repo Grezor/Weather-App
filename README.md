@@ -40,6 +40,8 @@ Viewer](https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflga
 ```
 ## Installation
 
+**Repository update : 11/06/2022**
+
 - On Github, go to the main page of the project
 - Open a terminal, or git bash
 - Replace the current working directory with the location where you want to clone it.
@@ -59,7 +61,7 @@ folder.
 - Type : **npm start** in the terminal
 - result terminal :
 ```
-[nodemon] 2.0.4
+[nodemon] 2.0.16
 [nodemon] to restart at any time, enter `rs`
 [nodemon] watching path(s): *.*
 [nodemon] watching extensions: js,mjs,json
