@@ -13,7 +13,7 @@
     "axios": "^0.21.4",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
-    "ejs": "^3.1.6",
+    "ejs": "^3.1.7",
     "express": "^4.17.1",
     "nodemon": "^2.0.13",
     "npm-check-updates": "^11.8.5",
