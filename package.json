@@ -2,7 +2,7 @@
   "name": "weatherapp_nodejs",
   "author": "Geoffrey",
   "version": "1.0.0",
-  "description": "",
+  "description": "Application météo",
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",
