@@ -1,19 +1,27 @@
 ![WeatherApp](https://user-images.githubusercontent.com/38507456/86512535-65c7e580-be03-11ea-8833-eabacd5c92c3.png)
 
-  - [Introduction](#introduction)
-  - [Requirements](#requirements)
-  - [Technologies](#technologies)
-  - [Installation](#installation)
-    - [Packages](#packages)
-    - [Start](#start)
-  - [Illustration](#illustration)
-  - [API](#api)
-  - [Functionality](#functionality)
-    - [Use](#use)
-  - [Project status](#project-status)
-  - [Improvement](#improvement)
-  - [Contribute](#contribute)
-  - [Author](#author)
+- [Introduction](#introduction)
+- [Requirements](#requirements)
+- [Technologies](#technologies)
+- [Installation](#installation)
+- [Packages](#packages)
+- [Start](#start)
+- [Illustration](#illustration)
+  - [weather of the day](#weather-of-the-day)
+  - [Page About](#page-about)
+- [API](#api)
+- [Functionality](#functionality)
+- [Use](#use)
+- [Project status](#project-status)
+- [Improvement](#improvement)
+- [Contribute](#contribute)
+- [Author](#author)
+
+
+> **⚠️ Warning**
+>
+> Update packages: 06/12/2023
+
 
 ## Introduction
 I was tired of going out and seeing what the weather was like outside. Tired of using the google weather application.

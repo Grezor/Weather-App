@@ -11,20 +11,20 @@
   },
   "license": "ISC",
   "dependencies": {
-    "axios": "^1.2.2",
-    "body-parser": "^1.20.1",
+    "axios": "^1.6.2",
+    "body-parser": "^1.20.2",
     "cors": "^2.8.5",
-    "ejs": "^3.1.8",
+    "ejs": "^3.1.9",
     "express": "^4.18.2",
-    "nodemon": "^2.0.20",
-    "npm-check-updates": "^16.6.2",
-    "postcss-cli": "^10.1.0"
+    "nodemon": "^3.0.2",
+    "npm-check-updates": "^16.14.11",
+    "postcss-cli": "^11.0.0"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.13",
-    "dotenv": "^16.0.3",
-    "eslint": "^8.31.0",
-    "postcss": "^8.4.21",
-    "tailwindcss": "^3.2.4"
+    "autoprefixer": "^10.4.16",
+    "dotenv": "^16.3.1",
+    "eslint": "^8.55.0",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.3.6"
   }
 }
